@@ -1,0 +1,106 @@
+/*
+ * GoExplore design tokens.
+ * Values come from the design export (Auth.dc.html). Every page should use
+ * these variables instead of hard-coded colors so the theme stays consistent.
+ */
+:root {
+  /* Brand */
+  --gx-primary: #0e5a4a;
+  --gx-primary-hover: #0a4236;
+  --gx-primary-deep: #0a4236;
+  --gx-primary-tint: #bfe3d6;
+  --gx-primary-tint-soft: #e2efea;
+  --gx-accent: #f4b183;
+  --gx-accent-strong: #c2410c; /* orange: highlights, check badges, final CTA */
+  --gx-accent-strong-hover: #9a3412;
+  --gx-primary-selected: #f2f8f5; /* background of a selected card */
+  --gx-primary-muted: #8fa9a0; /* dashed outlines */
+
+  /* Surfaces */
+  --gx-bg: #f7f6f2;
+  --gx-surface: #ffffff;
+  --gx-surface-glass: rgba(247, 246, 242, 0.97);
+
+  /* Text */
+  --gx-text: #15211f;
+  --gx-text-muted: #55625f;
+  --gx-text-on-primary: #ffffff;
+
+  /* Lines & controls */
+  --gx-border: #e3e1da;
+  --gx-border-strong: #d5d2c9;
+  --gx-divider: #eeece6;
+  --gx-switch-off: #d5d2c9;
+
+  /* Feedback */
+  --gx-danger: #8e2318;
+  --gx-danger-bg: #fce4e1;
+  --gx-success: #0e5a4a;
+  --gx-success-bg: #e2efea;
+  --gx-info-bg: #fff4ea;
+
+  /* Typography */
+  --gx-font-body: 'IBM Plex Sans Arabic', 'Figtree', system-ui, sans-serif;
+  --gx-font-heading: 'Readex Pro', 'Bricolage Grotesque', sans-serif;
+  --gx-font-brand: 'Bricolage Grotesque', sans-serif;
+
+  /* Shape */
+  --gx-radius-sm: 10px;
+  --gx-radius-md: 14px;
+  --gx-radius-card: 18px;
+  --gx-radius-panel: 22px;
+  --gx-radius-lg: 28px;
+  --gx-radius-pill: 999px;
+
+  /* Elevation */
+  --gx-shadow-card: 0 16px 40px rgba(4, 24, 20, 0.18);
+  --gx-shadow-knob: 0 1px 3px rgba(0, 0, 0, 0.2);
+
+  --gx-focus-ring: 0 0 0 3px rgba(14, 90, 74, 0.22);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  background: var(--gx-bg);
+  color: var(--gx-text);
+  font-family: var(--gx-font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--gx-primary);
+}
+
+a:hover {
+  color: var(--gx-primary-hover);
+}
+
+button {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gx-primary);
+  outline-offset: 2px;
+}
+
+.gx-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

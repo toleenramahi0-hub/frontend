@@ -1,0 +1,20 @@
+.gx-chip {
+  padding: 10px 16px;
+  border: 1px solid var(--gx-border-strong);
+  border-radius: var(--gx-radius-pill);
+  background: var(--gx-surface);
+  color: var(--gx-text);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.gx-chip:hover {
+  border-color: var(--gx-primary);
+}
+
+.gx-chip--on {
+  border-color: var(--gx-primary);
+  background: var(--gx-primary);
+  color: var(--gx-text-on-primary);
+  font-weight: 600;
+}

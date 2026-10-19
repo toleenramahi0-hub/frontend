@@ -1,0 +1,35 @@
+.gx-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  background: transparent;
+  color: var(--gx-text);
+  cursor: pointer;
+  padding: 6px 0;
+}
+
+.gx-switch__track {
+  width: 44px;
+  height: 26px;
+  padding: 4px;
+  display: flex;
+  justify-content: flex-start;
+  border-radius: var(--gx-radius-pill);
+  background: var(--gx-switch-off);
+  transition: background 0.2s;
+}
+
+.gx-switch__track--on {
+  justify-content: flex-end;
+  background: var(--gx-primary);
+}
+
+.gx-switch__knob {
+  width: 18px;
+  height: 18px;
+  display: block;
+  border-radius: var(--gx-radius-pill);
+  background: #ffffff;
+  box-shadow: var(--gx-shadow-knob);
+}
