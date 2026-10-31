@@ -35,6 +35,8 @@ password and any 6-digit code until the staff auth API exists (`src/services/sta
 | `/post/:id` | Post dialog: carousel, comments, like, report, delete own | UC-SR-03/05/06/12 |
 | `/story/:user` | Story viewer | — |
 | `/new-post` | New post (pick up to 5 images, caption, place) | UC-SR-01 |
+| `/new-story` | Add to story (Instagram-style composer: text, location, your story / close friends) | — |
+| `/close-friends` | Close friends list | — |
 | `/settings` | Settings & activity, logout | UC-U03 |
 | `/places` | Discover: NL search hero, top 2 per category | UC-PB-02, UC-AI-02 |
 | `/category/:id` | One category, ranked | UC-PB-02 |
@@ -42,6 +44,7 @@ password and any 6-digit code until the staff auth API exists (`src/services/sta
 | `/map` | Illustrated Nablus map | FR-14 |
 | `/search?q=` | Explore grid / people & places search with NL suggestions | UC-AI-02 |
 | `/me`, `/u/:username` | Profile (own / other / private) | UC-U05, UC-SR-17 |
+| `/saved` | Saved posts and saved places | UC-PB-04 |
 | `/edit` | Edit profile dialog | UC-U06 – UC-U10 |
 | `/inbox`, `/notifications` | Messages, notifications | UC-SR-15 |
 | `/admin/login`, `/admin` | Admin sign-in (2 steps) and dashboard | UC-SR-07, UC-PB-06/07 |
@@ -72,8 +75,8 @@ they select the screen's stylesheet.
 ## What still runs in the browser only
 
 Until the matching API endpoints exist, these are kept in `localStorage` (`gx_interactions`):
-likes, saves, follows, ratings, comments, published posts, reports, profile edits, and the
-admin / business dashboard decisions. Places, users and posts come from `src/data/`.
+likes, saves, follows, ratings, comments, published posts, stories, close friends, sent messages
+and story replies, reports, profile edits, and the admin / business dashboard decisions. Places, users and posts come from `src/data/`.
 `src/services/recommendations.js` is a keyword-based stand-in for the NLP endpoint.
 
 ## Auth API contract expected from the backend

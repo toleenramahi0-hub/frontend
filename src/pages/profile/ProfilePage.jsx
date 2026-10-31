@@ -4,10 +4,9 @@ import AppShell from '../../components/AppShell'
 import Icon from '../../components/Icon'
 import Photo, { photoSrc } from '../../components/Photo'
 import { useCurrentProfile } from '../../context/useCurrentProfile'
-import { categoryLabel } from '../../data/categories'
-import { placeById, placeByName } from '../../data/places'
+import { placeByName } from '../../data/places'
 import { ME, userByName } from '../../data/users'
-import { setValue, useList, useToggle, useValue } from '../../services/interactions'
+import { setValue, useToggle, useValue } from '../../services/interactions'
 
 const stars = (n) => '★'.repeat(n) + '☆'.repeat(5 - n)
 
@@ -179,6 +178,7 @@ export default function ProfilePage({ overlay }) {
   const [following, toggleFollow] = useToggle('following', user?.username ?? '', !!user?.following)
 
   if (username === ME && mine) return <Navigate to="/me" replace />
+  if (mine && tab === 'saved') return <Navigate to="/saved" replace />
   if (!user) {
     return (
       <AppShell page="PrivateProfile">
@@ -359,69 +359,17 @@ export default function ProfilePage({ overlay }) {
                 <span>الأماكن</span>
               </button>
               {mine && (
-                <button
-                  type="button"
-                  role="tab"
-                  className="tabb"
-                  aria-selected={tab === 'saved'}
-                  onClick={() => setTab('saved')}
-                  aria-label="المحفوظات"
-                >
+                <Link to="/saved" className="tabb" aria-label="المحفوظات">
                   <Icon name="bookmark" />
                   <span>المحفوظات</span>
-                </button>
+                </Link>
               )}
             </div>
             {tab === 'posts' && <PostsGrid user={user} />}
             {tab === 'places' && <PlaceReviews user={user} mine={mine} />}
-            {tab === 'saved' && <SavedPlaces />}
           </>
         )}
       </div>
     </AppShell>
-  )
-}
-
-/** Saved places of the signed-in user (UC-PB-04). */
-function SavedPlaces() {
-  const places = useList('savedPlaces').map(placeById).filter(Boolean)
-  if (!places.length) {
-    return (
-      <div className="empty">
-        <span className="lk" aria-hidden="true">
-          <Icon name="bookmark" size={32} />
-        </span>
-        <h2 className="h3">ما حفظت أماكن لسا</h2>
-        <p className="muted" style={{ margin: 0 }}>
-          اضغط على علامة الحفظ بأي مكان ليظهر هون.{' '}
-          <Link to="/places" className="link">
-            تصفّح الأماكن
-          </Link>
-        </p>
-      </div>
-    )
-  }
-  return (
-    <div className="vplaces">
-      <div className="vrevs">
-        {places.map((p) => (
-          <Link key={p.id} to={`/place/${p.id}`} className="vrev">
-            <span className="vim">
-              <img src={p.img} alt={p.name} />
-            </span>
-            <span className="vrbody">
-              <span className="vtop">
-                <span className="vname">{p.name}</span>
-                <span className="vstars">★ {p.rating.toFixed(1)}</span>
-              </span>
-              <span className="vmeta">
-                <span className="vcat">{categoryLabel(p.category)}</span>
-                <span>{p.area}</span>
-              </span>
-            </span>
-          </Link>
-        ))}
-      </div>
-    </div>
   )
 }

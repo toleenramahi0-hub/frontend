@@ -10,7 +10,7 @@ import { setValue, useValue } from '../../services/interactions'
 const clock = (pos, scale) => ({ src: '/assets/images/nablus-clock-tower.jpg', pos, scale })
 
 // Device gallery shown in the picker (stand-in for the user's camera roll).
-const GALLERY = [
+export const GALLERY = [
   '/img/ph/sw_kunafa.jpg',
   '/img/ph/sw_qatayef.jpg',
   '/img/ph/cafe_croissant.jpg',
@@ -34,8 +34,8 @@ const GALLERY = [
 ]
 
 const MAX_IMAGES = 5
-const IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/webp']
-const IMAGE_MAX_MB = 8
+export const IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/webp']
+export const IMAGE_MAX_MB = 8
 
 /**
  * Create an experience post (UC-SR-01): pick up to five images, then write the
@@ -120,11 +120,11 @@ export default function NewPostDialog() {
           )}
           <h2>منشور جديد</h2>
           {step === 1 ? (
-            <button type="button" className="post-btn" disabled={!selected.length} onClick={() => setStep(2)}>
+            <button type="button" className="st sm red" disabled={!selected.length} onClick={() => setStep(2)}>
               التالي
             </button>
           ) : (
-            <button type="submit" className="post-btn" disabled={!caption.trim()}>
+            <button type="submit" className="st sm red" disabled={!caption.trim()}>
               نشر
             </button>
           )}

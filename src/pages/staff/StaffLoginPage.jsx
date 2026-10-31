@@ -31,7 +31,9 @@ const VARIANTS = {
   },
   business: {
     page: 'BusinessLogin',
-    bg: { src: '/img/ph/hero_valley.jpg', alt: 'رسم لنابلس بين الجبلين' },
+    bg: { src: '/img/auth_city.jpg', alt: 'رسم لمدينة نابلس على سفح الجبل', position: 'center bottom' },
+    // Same look as the user sign-in: plain header, sign in / create account tabs, no badge block.
+    userLook: true,
     home: '/business/login',
     brandLabel: 'دخول أصحاب الأنشطة',
     brandWord: 'للأعمال',
@@ -44,7 +46,6 @@ const VARIANTS = {
     otpHint: 'بعتنالك رمز من 6 أرقام برسالة على جوالك المسجّل.',
     submit: 'دخول لوحة نشاطي',
     dashboard: '/business',
-    signup: true,
     icon: <path d="M4 10v10h16V10M3 10l2-6h14l2 6M3 10h18M9 20v-6h6v6" />,
   },
 }
@@ -59,6 +60,7 @@ export default function StaffLoginPage({ variant }) {
   const [remember, setRemember] = useState(true)
   const [code, setCode] = useState(['', '', '', '', '', ''])
   const [error, setError] = useState('')
+  const userLook = Boolean(v.userLook)
 
   function next(e) {
     e.preventDefault()
@@ -92,23 +94,27 @@ export default function StaffLoginPage({ variant }) {
           src={v.bg.src}
           alt={v.bg.alt}
           className="photo"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectPosition: 'center 40%' }}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectPosition: v.bg.position || 'center 40%' }}
         />
-        <SiteHeader
-          to={v.home}
-          label={v.brandLabel}
-          tagline={v.tagline}
-          title={
-            <>
-              {'GoExplore '}
-              <span style={{ color: '#E2B66E', fontWeight: 400 }}>{v.brandWord}</span>
-            </>
-          }
-        >
-          <Link to="/" className="small b" style={{ marginInlineStart: 'auto', color: '#E6DCCB', textDecoration: 'none' }}>
-            → رجوع للتطبيق
-          </Link>
-        </SiteHeader>
+        {userLook ? (
+          <SiteHeader />
+        ) : (
+          <SiteHeader
+            to={v.home}
+            label={v.brandLabel}
+            tagline={v.tagline}
+            title={
+              <>
+                {'GoExplore '}
+                <span style={{ color: '#E2B66E', fontWeight: 400 }}>{v.brandWord}</span>
+              </>
+            }
+          >
+            <Link to="/" className="small b" style={{ marginInlineStart: 'auto', color: '#E6DCCB', textDecoration: 'none' }}>
+              → رجوع للتطبيق
+            </Link>
+          </SiteHeader>
+        )}
         <section
           className="amain"
           style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 'clamp(24px, 5vh, 56px) 16px', position: 'relative' }}
@@ -130,22 +136,36 @@ export default function StaffLoginPage({ variant }) {
               boxShadow: '0 18px 50px rgba(60,40,20,.28)',
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-              <span className="lock" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  {v.icon}
-                </svg>
-              </span>
-              <div>
-                <span className="tag dark">{v.tag}</span>
-                <h2 className="h2" style={{ marginTop: 6 }}>
-                  {v.title}
-                </h2>
+            {userLook ? (
+              <div className="seg" role="group" aria-label="نوع الدخول" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
+                <button type="button" aria-pressed="true">
+                  تسجيل الدخول
+                </button>
+                <button type="button" aria-pressed="false" onClick={() => navigate('/business/signup', { replace: true })}>
+                  إنشاء حساب
+                </button>
               </div>
-            </div>
-            <p className="small" style={{ margin: '-6px 0 0', color: '#3A2E26', fontWeight: 500 }}>
-              {v.intro}
-            </p>
+            ) : (
+              <>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                  <span className="lock" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      {v.icon}
+                    </svg>
+                  </span>
+                  <div>
+                    <span className="tag dark">{v.tag}</span>
+                    <h2 className="h2" style={{ marginTop: 6 }}>
+                      {v.title}
+                    </h2>
+                  </div>
+                </div>
+                <p className="small" style={{ margin: '-6px 0 0', color: '#3A2E26', fontWeight: 500 }}>
+                  {v.intro}
+                </p>
+              </>
+            )}
+            {userLook && <h2 className="h2">{step === 1 ? 'أهلاً بعودتك' : 'التحقق بخطوتين'}</h2>}
             {error && (
               <div className="alert err" role="alert">
                 {error}
@@ -178,24 +198,16 @@ export default function StaffLoginPage({ variant }) {
                       <path d="M5 12.5l4.5 4.5L19 7.5" />
                     </svg>
                   </span>
-                  <span>تذكّر هذا الجهاز لمدة 30 يوم</span>
+                  <span>{userLook ? 'تذكّرني' : 'تذكّر هذا الجهاز لمدة 30 يوم'}</span>
                 </label>
                 <button type="submit" className="st grn wide" style={{ minHeight: 54, fontSize: 17, color: '#FFFFFF' }}>
                   متابعة ←
                 </button>
-                {v.signup && (
-                  <p className="small" style={{ margin: 0, textAlign: 'center', color: '#3A2E26' }}>
-                    {'ما عندك حساب؟ '}
-                    <Link className="link" to="/business/signup">
-                      سجّل نشاطك التجاري
-                    </Link>
-                  </p>
-                )}
               </form>
             ) : (
               <form className="stack" style={{ gap: 16 }} onSubmit={verify} noValidate>
                 <div>
-                  <strong>التحقق بخطوتين</strong>
+                  {!userLook && <strong>التحقق بخطوتين</strong>}
                   <p className="small" style={{ margin: '4px 0 0', color: '#3A2E26' }}>
                     {v.otpHint}
                   </p>

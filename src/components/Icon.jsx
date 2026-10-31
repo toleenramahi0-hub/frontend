@@ -1,6 +1,7 @@
 // Line icons from the GoExplore design (24x24, stroked via the `.ic` class in app-theme.css).
 const PATHS = {
   bookmark: 'M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z',
+  star: 'M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3 6.4 20.2l1.1-6.2L3 9.6l6.2-.9z',
   send: 'M22 3L11 13M22 3l-7 18-4-8-8-4z',
   heart:
     'M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z',

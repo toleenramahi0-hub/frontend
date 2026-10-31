@@ -7,6 +7,8 @@ import LoginPage from './pages/auth/LoginPage'
 import HomePage from './pages/home/HomePage'
 import IntroPage from './pages/intro/IntroPage'
 import NewPostDialog from './pages/home/NewPostDialog'
+import NewStoryDialog from './pages/home/NewStoryDialog'
+import CloseFriendsPage from './pages/home/CloseFriends'
 import PostDialog from './pages/home/PostDialog'
 import SettingsDialog from './pages/home/SettingsDialog'
 import StoryViewer from './pages/home/StoryViewer'
@@ -19,6 +21,7 @@ import PlacesPage from './pages/places/PlacesPage'
 import PreferencesPage from './pages/preferences/PreferencesPage'
 import EditProfileDialog from './pages/profile/EditProfileDialog'
 import ProfilePage from './pages/profile/ProfilePage'
+import SavedPage from './pages/profile/SavedPage'
 import SearchPage from './pages/search/SearchPage'
 import AdminDashboardPage from './pages/staff/AdminDashboardPage'
 import BusinessDashboardPage from './pages/staff/BusinessDashboardPage'
@@ -64,8 +67,11 @@ function AppRoutes() {
         <Route path="/post/:postId" element={<HomePage overlay={<PostDialog />} />} />
         <Route path="/story/:username" element={<HomePage overlay={<StoryViewer />} />} />
         <Route path="/new-post" element={<HomePage overlay={<NewPostDialog />} />} />
+        <Route path="/new-story" element={<HomePage overlay={<NewStoryDialog />} />} />
+        <Route path="/close-friends" element={<HomePage overlay={<CloseFriendsPage />} />} />
         <Route path="/settings" element={<HomePage overlay={<SettingsDialog />} />} />
         <Route path="/me" element={<ProfilePage />} />
+        <Route path="/saved" element={<SavedPage />} />
         <Route path="/edit" element={<ProfilePage overlay={<EditProfileDialog />} />} />
         <Route path="/inbox" element={<InboxPage />} />
         <Route path="/notifications" element={<NotificationsPage />} />

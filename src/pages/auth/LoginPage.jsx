@@ -201,15 +201,6 @@ export default function LoginPage({ mode = 'login' }) {
                 </>
               )}
             </form>
-            <p className="small" style={{ margin: 0, textAlign: 'center', color: '#3A2E26' }}>
-              <Link className="link" to="/places">
-                تصفّح الأماكن بدون حساب
-              </Link>
-              {' · '}
-              <Link className="link" to="/business/login">
-                دخول أصحاب الأنشطة
-              </Link>
-            </p>
           </div>
         </section>
       </div>

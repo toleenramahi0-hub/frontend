@@ -43,7 +43,7 @@ export default function AppHeader({ active, guest = false, badges = { inbox: 3, 
         <Brand to={guest ? '/places' : '/home'} />
         <nav className="topnav" aria-label="القائمة الرئيسية">
           {NAV.filter((item) => !guest || item.id !== 'home').map((item) => (
-            <Link key={item.id} to={item.to} aria-current={active === item.id ? 'page' : 'false'}>
+            <Link key={item.id} to={item.to} className={active === item.id ? 'st sm red' : 'st sm lnn'} aria-current={active === item.id ? 'page' : 'false'}>
               {item.label}
             </Link>
           ))}

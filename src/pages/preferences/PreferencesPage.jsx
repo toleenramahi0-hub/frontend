@@ -396,22 +396,22 @@ export default function PreferencesPage() {
 
             <div className="row" style={{ justifyContent: 'space-between', borderTop: '1.5px dashed #D5C4AA', paddingTop: 20, position: 'relative' }}>
               {step > 1 && (
-                <button type="button" onClick={() => setStep((s) => s - 1)} className="st lnn pill">
+                <button type="button" onClick={() => setStep((s) => s - 1)} className="st lnn">
                   → السابق
                 </button>
               )}
               {step === 1 && hasSaved && (
-                <button type="button" onClick={clearAll} className="st ghost pill">
+                <button type="button" onClick={clearAll} className="st ghost">
                   مسح كل التفضيلات
                 </button>
               )}
               <span style={{ flex: 1 }} />
               {step < STEPS.length ? (
-                <button type="button" onClick={next} className="st grn pill" style={{ padding: '14px 30px' }}>
+                <button type="button" onClick={next} className="st grn" style={{ padding: '14px 30px' }}>
                   التالي ←
                 </button>
               ) : (
-                <button type="button" onClick={save} disabled={saving} className="st red pill" style={{ padding: '14px 30px', color: '#FFFFFF' }}>
+                <button type="button" onClick={save} disabled={saving} className="st red" style={{ padding: '14px 30px', color: '#FFFFFF' }}>
                   {saving ? 'جارٍ الحفظ…' : 'احفظ وابدأ الاستكشاف ←'}
                 </button>
               )}

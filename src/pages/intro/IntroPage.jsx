@@ -202,23 +202,23 @@ export default function IntroPage() {
         </main>
       </div>
 
-      <nav className={`roles${showRoles ? ' show' : ''}`} aria-label="تسجيل الدخول">
+      <nav className={`roles th-site${showRoles ? ' show' : ''}`} aria-label="تسجيل الدخول">
         <span className="lbl">ادخل كـ</span>
         <div className="row">
-          <Link className="role u" to="/login">
+          <Link className="role st grn" to="/login">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <circle cx="12" cy="8" r="4" />
               <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" />
             </svg>
             مستخدم
           </Link>
-          <Link className="role o" to="/business/login">
+          <Link className="role st red" to="/business/login">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M4 10v10h16V10M3 10l2-6h14l2 6M3 10h18M9 20v-6h6v6" />
             </svg>
             صاحب عمل
           </Link>
-          <Link className="role a" to="/admin/login">
+          <Link className="role st lnn" to="/admin/login">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z" />
               <path d="M9 12l2 2 4-4" />

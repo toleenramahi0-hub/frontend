@@ -61,9 +61,8 @@
 .th-site .crm{background-color:#EFE3CF;color:#2E241E;--thread:#A98663}
 .th-site .gld{background-color:#D8A659;color:#2A1A0C;--thread:#7E1514}
 .th-site .lnn{background-color:#FBF6EE;color:#2E241E;--thread:#C2A986}
-.th-site .st.sm{padding:7px 16px;min-height:36px;font-size:14px;border-radius:999px}
+.th-site .st.sm{padding:7px 16px;min-height:36px;font-size:14px;border-radius:12px}
 .th-site .st.sm::after{inset:3px;border-width:1.1px}
-.th-site .st.pill{border-radius:999px}
 .th-site .st.wide{width:100%}
 .th-site .st.ghost{background:transparent;background-image:none;box-shadow:none;color:var(--red);--thread:transparent}
 .th-site .st[disabled],.th-site .st.off{background-color:#E6DCCB;color:#8A7B6E;--thread:#BFAE95;cursor:default;filter:none}

@@ -45,7 +45,7 @@ export default function PlaceCard({ place, rank, hot, tags = place.tags }) {
         </span>
         <span className="xpl-foot">
           <span className="xs muted">{place.reviews} تقييم</span>
-          <Link to={to} className="tbtn xpl-go">
+          <Link to={to} className="st sm grn xpl-go">
             التفاصيل ←
           </Link>
         </span>

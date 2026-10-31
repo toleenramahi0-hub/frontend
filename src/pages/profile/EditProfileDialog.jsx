@@ -100,7 +100,7 @@ export default function EditProfileDialog() {
             <Icon name="close" />
           </button>
           <h2>تعديل الملف الشخصي</h2>
-          <button type="submit" className="post-btn">
+          <button type="submit" className="st sm red">
             حفظ
           </button>
         </div>

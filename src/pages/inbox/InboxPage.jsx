@@ -3,9 +3,11 @@ import { Link, useSearchParams } from 'react-router-dom'
 import AppShell, { BackBar } from '../../components/AppShell'
 import Avatar from '../../components/Avatar'
 import Icon from '../../components/Icon'
+import Photo from '../../components/Photo'
 import { profilePath } from '../../components/PostCard'
 import { useCurrentProfile } from '../../context/useCurrentProfile'
 import { userByName } from '../../data/users'
+import { appendTo, useMap } from '../../services/interactions'
 
 const clock = (pos, scale) => ({ src: '/assets/images/nablus-clock-tower.jpg', pos, scale })
 const garden = (pos, scale) => ({ src: '/assets/images/nablus-garden.jpg', pos, scale })
@@ -31,14 +33,43 @@ const INITIAL_THREADS = {
 
 const contact = (username) => CONTACTS[username] ?? { name: userByName(username)?.name ?? username }
 
+// Last-message preview for the conversation list.
+function preview(m) {
+  if (!m) return 'ابدأ المحادثة'
+  const text = m.reaction ? `تفاعل على القصة ${m.reaction}` : m.shared ? 'بعت قصة' : m.story ? `رد على القصة: ${m.text}` : m.text
+  return m.from === 'me' ? `إنت: ${text}` : text
+}
+
+/** One message; story replies and reactions show the story they answer, like Instagram. */
+function Message({ m, them }) {
+  if (!m.story) return <div className={`msg ${m.from}`}>{m.text}</div>
+  const label = m.shared ? `بعتت قصة ${m.story.owner}` : m.reaction ? 'تفاعلت على قصته' : 'رديت على قصته'
+  return (
+    <div className="dmstory">
+      <span className="xs muted">{m.from === 'me' ? label : `${them} ${label}`}</span>
+      <Link to={`/story/${m.story.owner}`} className="dmstory-im" aria-label="فتح القصة">
+        <Photo img={m.story.img} />
+      </Link>
+      {m.reaction ? <span className="dmstory-r">{m.reaction}</span> : m.text && <div className={`msg ${m.from}`}>{m.text}</div>}
+    </div>
+  )
+}
+
 /** Direct messages: notes row, conversation list and the open thread. */
 export default function InboxPage() {
   const me = useCurrentProfile()
   const [params] = useSearchParams()
-  const [threads, setThreads] = useState(() => {
+  const sent = useMap('dms') // messages sent from this browser: replies, story replies, shared stories
+  const [base, setBase] = useState(() => {
     const to = params.get('to')
     return to && !INITIAL_THREADS[to] ? { [to]: { unread: false, messages: [] }, ...INITIAL_THREADS } : INITIAL_THREADS
   })
+  const threads = Object.fromEntries(
+    [...new Set([...Object.keys(sent), ...Object.keys(base)])].map((u) => {
+      const t = base[u] ?? { unread: false, messages: [] }
+      return [u, { ...t, messages: [...t.messages, ...(sent[u] ?? [])] }]
+    }),
+  )
   const [active, setActive] = useState(params.get('to') ?? 'sara.y')
   const [filter, setFilter] = useState('')
   const [draft, setDraft] = useState('')
@@ -46,20 +77,20 @@ export default function InboxPage() {
 
   useEffect(() => {
     msgsRef.current?.scrollTo({ top: msgsRef.current.scrollHeight })
-  }, [active, threads])
+  }, [active, sent])
 
   const unreadCount = Object.values(threads).filter((t) => t.unread).length
 
   function open(username) {
     setActive(username)
-    setThreads((t) => ({ ...t, [username]: { ...t[username], unread: false } }))
+    setBase((t) => (t[username] ? { ...t, [username]: { ...t[username], unread: false } } : t))
   }
 
   function send(e) {
     e.preventDefault()
     const text = draft.trim()
     if (!text) return
-    setThreads((t) => ({ ...t, [active]: { ...t[active], messages: [...t[active].messages, { from: 'me', text }] } }))
+    appendTo('dms', active, { from: 'me', text, at: Date.now() })
     setDraft('')
   }
 
@@ -129,7 +160,7 @@ export default function InboxPage() {
                       className={t.unread ? 'small b' : 'small muted'}
                       style={{ display: 'block', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
                     >
-                      {last ? (last.from === 'me' ? `إنت: ${last.text}` : last.text) : 'ابدأ المحادثة'}
+                      {preview(last)}
                     </span>
                   </span>
                   {t.unread && (
@@ -157,9 +188,7 @@ export default function InboxPage() {
             </div>
             <div className="msgs" ref={msgsRef}>
               {thread.messages.map((m, i) => (
-                <div key={i} className={`msg ${m.from}`}>
-                  {m.text}
-                </div>
+                <Message key={i} m={m} them={current.name} />
               ))}
             </div>
             <form className="cin" onSubmit={send}>
@@ -167,7 +196,7 @@ export default function InboxPage() {
                 رسالة
               </label>
               <input id="dmin" placeholder="اكتب رسالة…" autoComplete="off" value={draft} onChange={(e) => setDraft(e.target.value)} />
-              <button type="submit" className="post-btn" disabled={!draft.trim()}>
+              <button type="submit" className="st sm red" disabled={!draft.trim()}>
                 إرسال
               </button>
             </form>

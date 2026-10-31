@@ -224,7 +224,7 @@ export default function PostDialog() {
               تعليق
             </label>
             <input id="pc" placeholder="أضف تعليقاً…" autoComplete="off" value={draft} onChange={(e) => setDraft(e.target.value)} maxLength={500} />
-            <button type="submit" className="post-btn" disabled={!draft.trim()}>
+            <button type="submit" className="st sm red" disabled={!draft.trim()}>
               نشر
             </button>
           </form>

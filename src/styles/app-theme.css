@@ -61,9 +61,8 @@
 .th-app .crm{background-color:#EFE3CF;color:#2E241E;--thread:#A98663}
 .th-app .gld{background-color:#D8A659;color:#2A1A0C;--thread:#7E1514}
 .th-app .lnn{background-color:#FBF6EE;color:#2E241E;--thread:#C2A986}
-.th-app .st.sm{padding:7px 16px;min-height:36px;font-size:14px;border-radius:999px}
+.th-app .st.sm{padding:7px 16px;min-height:36px;font-size:14px;border-radius:12px}
 .th-app .st.sm::after{inset:3px;border-width:1.1px}
-.th-app .st.pill{border-radius:999px}
 .th-app .st.wide{width:100%}
 .th-app .st.ghost{background:transparent;background-image:none;box-shadow:none;color:var(--red);--thread:transparent}
 .th-app .st[disabled],.th-app .st.off{background-color:#E6DCCB;color:#8A7B6E;--thread:#BFAE95;cursor:default;filter:none}
@@ -3979,21 +3978,10 @@
   height: 44px;
 }
 .th-app .ig .urow .st {
-  background: none !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  color: #7e1514 !important;
-  padding: 0 !important;
-  min-height: 0 !important;
+  flex: none;
   font-size: 13px;
-  font-weight: 700;
-}
-.th-app .ig .urow .st.crm {
-  color: #6a5c51 !important;
-}
-.th-app .ig .urow .st::before,
-.th-app .ig .urow .st::after {
-  display: none !important;
+  padding: 6px 14px;
+  min-height: 34px;
 }
 .th-app .igcnt {
   font-size: 14px;

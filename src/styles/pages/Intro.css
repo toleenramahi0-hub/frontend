@@ -68,19 +68,12 @@
 .p-Intro .wheel,.p-Intro .crank{transform-origin:50% 50%}
 .p-Intro .dress{transform-origin:50% 0}
 .p-Intro .flash{transform-box:fill-box;transform-origin:50% 50%;opacity:0;transform:scale(0)}
-.p-Intro .roles{position:fixed;left:0;right:0;bottom:3.2vh;z-index:7;display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 16px;pointer-events:none}
+.p-Intro .roles{position:fixed;left:0;right:0;bottom:3.2vh;z-index:7;display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 16px;pointer-events:none;background:none;min-height:0}
 .p-Intro .roles .lbl{font:700 15px 'Tajawal',sans-serif;color:var(--ink);background:rgba(253,248,236,.85);padding:4px 14px;border-radius:999px;opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s}
 .p-Intro .roles .row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-.p-Intro .role{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;min-width:132px;padding:0 20px;border-radius:999px;text-decoration:none;white-space:nowrap;font:700 16px 'Tajawal',sans-serif;
-  opacity:0;transform:translateY(16px) scale(.96);transition:opacity .45s,transform .45s cubic-bezier(.3,1.4,.5,1),background .2s,box-shadow .2s}
+.p-Intro .role{min-width:132px;white-space:nowrap;
+  opacity:0;transform:translateY(16px) scale(.96);transition:opacity .45s,transform .45s cubic-bezier(.3,1.4,.5,1),filter .15s}
 .p-Intro .role svg{width:20px;height:20px;flex:none}
-.p-Intro .role.u{background:var(--ink);color:#FFF6EA;box-shadow:0 8px 18px rgba(11,38,20,.28),inset 0 -2px 0 var(--gold)}
-.p-Intro .role.u:hover{background:#1B4A2B}
-.p-Intro .role.o{background:var(--red);color:#FFF6EA;box-shadow:0 8px 18px rgba(126,14,13,.28),inset 0 -2px 0 var(--gold)}
-.p-Intro .role.o:hover{background:#97201B}
-.p-Intro .role.a{background:#FFFCF6;color:var(--ink);box-shadow:0 8px 18px rgba(42,26,12,.16),inset 0 0 0 2px var(--ink)}
-.p-Intro .role.a:hover{background:#F4EBD8}
-.p-Intro .role:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .p-Intro .roles.show{pointer-events:auto}
 .p-Intro .roles.show .lbl,.p-Intro .roles.show .role{opacity:1;transform:none}
 .p-Intro .roles.show .role:nth-child(2){transition-delay:.12s}

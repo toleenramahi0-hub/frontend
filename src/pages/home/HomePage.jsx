@@ -22,12 +22,18 @@ function FollowButton({ username, request, className = 'st sm red' }) {
   )
 }
 
+const DAY = 24 * 60 * 60 * 1000
+
 function Stories({ me }) {
+  const added = useValue('myStories', 'all') ?? []
+  const deleted = useList('deletedStoryFrames')
+  // Green ring when your live story includes a close-friends item, like Instagram.
+  const closeRing = added.some((s) => s.audience === 'close' && Date.now() - s.at < DAY && !deleted.includes(s.id))
   return (
     <section aria-label="القصص">
       <div className="stories">
         <Link to="/story/me" className="sto">
-          <span className="c">
+          <span className={closeRing ? 'c close' : 'c'}>
             <span style={{ background: me.color }}>{me.initial}</span>
           </span>
           <small>قصتك</small>

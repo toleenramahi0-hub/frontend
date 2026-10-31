@@ -4,7 +4,7 @@ import Icon from '../../components/Icon'
 import Overlay from '../../components/Overlay'
 import { useAuth } from '../../context/useAuth'
 import { useCurrentProfile } from '../../context/useCurrentProfile'
-import { useToggle } from '../../services/interactions'
+import { useList, useToggle } from '../../services/interactions'
 
 function Row({ to, icon, label, value, onClick, className = 'serow' }) {
   const content = (
@@ -33,6 +33,7 @@ export default function SettingsDialog() {
   const me = useCurrentProfile()
   const [activityOn, toggleActivity] = useToggle('settings', 'activity-status', true)
   const [loggingOut, setLoggingOut] = useState(false)
+  const closeFriends = useList('closeFriends')
   const close = () => navigate(-1)
 
   async function signOut() {
@@ -54,7 +55,7 @@ export default function SettingsDialog() {
         <div className="sh-body sebody">
           <section className="segrp">
             <h3 className="segrp-t">كيف بتستعمل جو إكسبلور</h3>
-            <Row to="/me?tab=saved" icon="bookmark" label="المحفوظات" />
+            <Row to="/saved" icon="bookmark" label="المحفوظات" />
             <Row to="/notifications" icon="heart" label="نشاطك" />
             <Row to="/notifications" icon="bell" label="تنبيهات الإشعارات" />
             <Row to="/preferences" icon="pin" label="تفضيلاتي للأماكن" />
@@ -62,6 +63,7 @@ export default function SettingsDialog() {
           <section className="segrp">
             <h3 className="segrp-t">مين بيشوف محتواك</h3>
             <Row to="/edit" icon="lock" label="خصوصية الحساب" value={me.private ? 'خاص' : 'عام'} />
+            <Row to="/close-friends" icon="star" label="الأصدقاء المقربين" value={closeFriends.length ? String(closeFriends.length) : undefined} />
             <Row icon="userGear" label="حالة النشاط" value={activityOn ? 'شغّالة' : 'مطفية'} onClick={toggleActivity} />
           </section>
           <section className="segrp">

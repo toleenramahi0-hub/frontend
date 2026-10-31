@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import OtpInput from '../../components/OtpInput'
 import SiteHeader from '../../components/SiteHeader'
 import { setValue } from '../../services/interactions'
@@ -67,6 +67,7 @@ function DocSlot({ title, optional, hint, file, onFile, onError }) {
 
 /** First-time business registration and ownership verification request (UC-PB-06). */
 export default function BusinessSignupPage() {
+  const navigate = useNavigate()
   const [step, setStep] = useState(1)
   const [account, setAccount] = useState({ name: '', phone: '', email: '', password: '', password2: '' })
   const [agree, setAgree] = useState(false)
@@ -133,26 +134,12 @@ export default function BusinessSignupPage() {
     <div className="p-BusinessSignup th-site">
       <div className="ge pg" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', position: 'relative', overflow: 'hidden', background: '#E9D9BC' }}>
         <img
-          src="/img/ph/hero_valley.jpg"
-          alt="رسم لنابلس بين الجبلين"
+          src="/img/auth_city.jpg"
+          alt="رسم لمدينة نابلس على سفح الجبل"
           className="photo"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectPosition: 'center 40%' }}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectPosition: 'center bottom' }}
         />
-        <SiteHeader
-          to="/business/signup"
-          label="تسجيل نشاط جديد"
-          tagline="لأصحاب المحلات والأماكن"
-          title={
-            <>
-              {'GoExplore '}
-              <span style={{ color: '#E2B66E', fontWeight: 400 }}>للأعمال</span>
-            </>
-          }
-        >
-          <Link to="/" className="small b" style={{ marginInlineStart: 'auto', color: '#E6DCCB', textDecoration: 'none' }}>
-            → رجوع للتطبيق
-          </Link>
-        </SiteHeader>
+        <SiteHeader />
         <section
           className="amain"
           style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 'clamp(24px, 5vh, 56px) 16px', position: 'relative' }}
@@ -160,7 +147,7 @@ export default function BusinessSignupPage() {
           <div
             style={{
               width: '100%',
-              maxWidth: 620,
+              maxWidth: 500,
               position: 'relative',
               display: 'flex',
               flexDirection: 'column',
@@ -174,49 +161,44 @@ export default function BusinessSignupPage() {
               boxShadow: '0 18px 50px rgba(60,40,20,.28)',
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-              <span className="lock" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M4 10v10h16V10M3 10l2-6h14l2 6M3 10h18M9 20v-6h6v6" />
-                </svg>
-              </span>
-              <div style={{ flex: 1 }}>
-                <span className="tag dark">GoExplore للأعمال · أول مرة</span>
-                <h2 className="h2" style={{ marginTop: 6 }}>
-                  سجّل نشاطك التجاري
-                </h2>
+            {step === 1 && (
+              <div className="seg" role="group" aria-label="نوع الدخول" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
+                <button type="button" aria-pressed="false" onClick={() => navigate('/business/login', { replace: true })}>
+                  تسجيل الدخول
+                </button>
+                <button type="button" aria-pressed="true">
+                  إنشاء حساب
+                </button>
               </div>
-            </div>
-            <div className="steps" aria-label="مراحل التسجيل">
-              {STEPS.map((label, i) => {
-                const n = i + 1
-                return (
-                  <div key={label} className={step > n ? 'done' : step === n ? 'cur' : ''}>
-                    <i>{step > n ? '✓' : n}</i>
-                    <span>{label}</span>
-                  </div>
-                )
-              })}
-            </div>
+            )}
+            {step < 5 && <h2 className="h2">سجّل نشاطك التجاري</h2>}
+            {step < 5 && (
+              <div className="steps" aria-label="مراحل التسجيل">
+                {STEPS.map((label, i) => {
+                  const n = i + 1
+                  return (
+                    <div key={label} className={step > n ? 'done' : step === n ? 'cur' : ''}>
+                      <i>{step > n ? '✓' : n}</i>
+                      <span>{label}</span>
+                    </div>
+                  )
+                })}
+              </div>
+            )}
 
             {step === 1 && (
               <form className="stack" style={{ gap: 14 }} onSubmit={next} noValidate>
-                <p className="small" style={{ margin: 0, color: '#3A2E26', fontWeight: 500 }}>
-                  أنشئ حساب صاحب نشاط عشان تدير صفحة مكانك على GoExplore — مجاناً.
-                </p>
-                <div className="g2f">
-                  <div>
-                    <label className="lb" htmlFor="fn">
-                      الاسم الكامل
-                    </label>
-                    <input id="fn" className="field" placeholder="مثلاً: خالد النابلسي" autoComplete="name" value={account.name} onChange={setA('name')} />
-                  </div>
-                  <div>
-                    <label className="lb" htmlFor="ph">
-                      رقم الجوال
-                    </label>
-                    <input id="ph" className="field" dir="ltr" style={{ textAlign: 'right' }} placeholder="+970 59 ___ ____" autoComplete="tel" value={account.phone} onChange={setA('phone')} />
-                  </div>
+                <div>
+                  <label className="lb" htmlFor="fn">
+                    الاسم الكامل
+                  </label>
+                  <input id="fn" className="field" placeholder="مثلاً: خالد النابلسي" autoComplete="name" value={account.name} onChange={setA('name')} />
+                </div>
+                <div>
+                  <label className="lb" htmlFor="ph">
+                    رقم الجوال
+                  </label>
+                  <input id="ph" className="field" dir="ltr" style={{ textAlign: 'right' }} placeholder="+970 59 ___ ____" autoComplete="tel" value={account.phone} onChange={setA('phone')} />
                 </div>
                 <div>
                   <label className="lb" htmlFor="em">
@@ -224,22 +206,18 @@ export default function BusinessSignupPage() {
                   </label>
                   <input id="em" className="field" type="email" dir="ltr" style={{ textAlign: 'right' }} placeholder="name@business.ps" autoComplete="email" value={account.email} onChange={setA('email')} />
                 </div>
-                <div className="g2f">
-                  <div>
-                    <label className="lb" htmlFor="pw">
-                      كلمة المرور
-                    </label>
-                    <input id="pw" className="field" type="password" autoComplete="new-password" value={account.password} onChange={setA('password')} />
-                    <p className="help muted" style={{ margin: '4px 0 0' }}>
-                      8 أحرف على الأقل، فيها رقم.
-                    </p>
-                  </div>
-                  <div>
-                    <label className="lb" htmlFor="pw2">
-                      تأكيد كلمة المرور
-                    </label>
-                    <input id="pw2" className="field" type="password" autoComplete="new-password" value={account.password2} onChange={setA('password2')} />
-                  </div>
+                <div>
+                  <label className="lb" htmlFor="pw">
+                    كلمة المرور
+                  </label>
+                  <input id="pw" className="field" type="password" autoComplete="new-password" value={account.password} onChange={setA('password')} />
+                  <p className="help muted">8 أحرف على الأقل، فيها رقم.</p>
+                </div>
+                <div>
+                  <label className="lb" htmlFor="pw2">
+                    تأكيد كلمة المرور
+                  </label>
+                  <input id="pw2" className="field" type="password" autoComplete="new-password" value={account.password2} onChange={setA('password2')} />
                 </div>
                 <label className="remember" htmlFor="ag">
                   <input id="ag" type="checkbox" checked={agree} onChange={(e) => setAgree(e.target.checked)} />
@@ -253,15 +231,9 @@ export default function BusinessSignupPage() {
                   </span>
                 </label>
                 {errorBox}
-                <button type="submit" className="st grn wide" style={{ minHeight: 54, fontSize: 17, color: '#FFFFFF' }}>
-                  إنشاء الحساب ←
+                <button type="submit" className="st red wide" style={{ minHeight: 54, fontSize: 17, color: '#FFFFFF' }}>
+                  إنشاء حساب
                 </button>
-                <p className="small" style={{ margin: 0, textAlign: 'center', color: '#3A2E26' }}>
-                  {'عندك حساب؟ '}
-                  <Link className="link" to="/business/login">
-                    سجّل دخولك
-                  </Link>
-                </p>
               </form>
             )}
 

@@ -57,6 +57,11 @@ export function setValue(kind, id, value) {
   emit()
 }
 
+/** Appends one item to the list stored under id, e.g. a sent message: appendTo('dms', 'sara.y', msg). */
+export function appendTo(kind, id, item) {
+  setValue(kind, id, [...(state[kind]?.[id] ?? []), item])
+}
+
 export function useValue(kind, id) {
   return useSyncExternalStore(subscribe, () => state[kind]?.[id])
 }
