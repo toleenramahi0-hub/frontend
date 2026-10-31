@@ -28,7 +28,7 @@ password and any 6-digit code until the staff auth API exists (`src/services/sta
 
 | Route | Screen | Use cases |
 | --- | --- | --- |
-| `/` | Visitor home: trending posts, sign-in banner | UC-SR-02 |
+| `/` | Redirects: visitors → `/login`, signed-in users → `/home` | — |
 | `/login`, `/register` | Sign in / create account | UC-U01, UC-U02 |
 | `/preferences` | 4-step preferences wizard | UC-U11 – UC-U14 |
 | `/home` | Feed: stories, highlighted places, posts, suggestions | UC-SR-02, UC-SR-04 |

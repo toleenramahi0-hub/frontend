@@ -4,7 +4,6 @@ import ProtectedRoute from './components/ProtectedRoute'
 import { AuthProvider } from './context/AuthContext'
 import { useAuth } from './context/useAuth'
 import LoginPage from './pages/auth/LoginPage'
-import GuestHomePage from './pages/home/GuestHomePage'
 import HomePage from './pages/home/HomePage'
 import NewPostDialog from './pages/home/NewPostDialog'
 import PostDialog from './pages/home/PostDialog'
@@ -34,6 +33,12 @@ function ScrollToTop() {
   return null
 }
 
+// Visitors start at sign-in; signed-in users at their feed.
+function StartPage() {
+  const { isAuthenticated } = useAuth()
+  return <Navigate to={isAuthenticated ? '/home' : '/login'} replace />
+}
+
 function AppRoutes() {
   const { status } = useAuth()
   // Wait for a saved session to be restored before routing.
@@ -42,7 +47,7 @@ function AppRoutes() {
   return (
     <Routes>
       {/* Public: visitors can browse places and public profiles (SRS §2, Visitor). */}
-      <Route path="/" element={<GuestHomePage />} />
+      <Route path="/" element={<StartPage />} />
       <Route path="/login" element={<LoginPage mode="login" />} />
       <Route path="/register" element={<LoginPage mode="register" />} />
       <Route path="/places" element={<PlacesPage />} />

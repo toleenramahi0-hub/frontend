@@ -100,7 +100,7 @@ export default function LoginPage({ mode = 'login' }) {
           className="photo"
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectPosition: 'center bottom' }}
         />
-        <SiteHeader />
+        <SiteHeader to="/places" label="تصفّح الأماكن" />
         <section
           className="amain"
           style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 'clamp(24px, 5vh, 56px) 16px', position: 'relative' }}
@@ -201,6 +201,15 @@ export default function LoginPage({ mode = 'login' }) {
                 </>
               )}
             </form>
+            <p className="small" style={{ margin: 0, textAlign: 'center', color: '#3A2E26' }}>
+              <Link className="link" to="/places">
+                تصفّح الأماكن بدون حساب
+              </Link>
+              {' · '}
+              <Link className="link" to="/business/login">
+                دخول أصحاب الأنشطة
+              </Link>
+            </p>
           </div>
         </section>
       </div>

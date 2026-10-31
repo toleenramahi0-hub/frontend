@@ -19,15 +19,11 @@ export function VerifiedBadge() {
 export const profilePath = (username) => (username === ME ? '/me' : `/u/${username}`)
 
 /** Feed post (UC-SR-02) with like / save (UC-SR-04) and a link to its comments (UC-SR-03). */
-export default function PostCard({ post, guest = false, onRequireAuth }) {
+export default function PostCard({ post }) {
   const user = userByName(post.user)
   const [liked, toggleLike] = useToggle('likedPosts', post.id)
   const [saved, toggleSave] = useToggle('savedPosts', post.id)
-  const [following, toggleFollow] = useToggle('following', post.user)
   const likes = liked ? bump(post.likes, 1) : post.likes
-
-  // Visitors can read the feed; interactions ask them to sign in (UC-SR-02 A4).
-  const guard = (fn) => (guest ? onRequireAuth : fn)
 
   return (
     <article className="post">
@@ -46,18 +42,13 @@ export default function PostCard({ post, guest = false, onRequireAuth }) {
             {post.place}
           </Link>
         </span>
-        {post.followable && (
-          <button type="button" className={`st sm ${following ? 'crm' : 'red'}`} onClick={guard(toggleFollow)}>
-            {following ? 'متابَع' : 'متابعة'}
-          </button>
-        )}
       </div>
       <Link to={`/post/${post.id}`} className="im" aria-label="فتح المنشور">
         <Photo img={post.images[0]} alt={post.caption} />
       </Link>
       <div style={{ padding: '4px 8px 14px' }}>
         <div className="row" style={{ gap: 0, flexWrap: 'nowrap' }}>
-          <button type="button" className="ib heartbtn" aria-pressed={liked} aria-label="أعجبني" onClick={guard(toggleLike)}>
+          <button type="button" className="ib heartbtn" aria-pressed={liked} aria-label="أعجبني" onClick={toggleLike}>
             <Icon name="heart" className={liked ? 'ic fill' : 'ic'} />
           </button>
           <span className="igcnt">{likes}</span>
@@ -74,7 +65,7 @@ export default function PostCard({ post, guest = false, onRequireAuth }) {
             <Icon name="send" />
           </button>
           <span style={{ flex: '1 1 0%' }} />
-          <button type="button" className="ib heartbtn" aria-pressed={saved} aria-label="حفظ" onClick={guard(toggleSave)}>
+          <button type="button" className="ib heartbtn" aria-pressed={saved} aria-label="حفظ" onClick={toggleSave}>
             <Icon name="bookmark" className={saved ? 'ic fill' : 'ic'} />
           </button>
         </div>

@@ -40,14 +40,10 @@ export default function AppHeader({ active, guest = false, badges = { inbox: 3, 
     <header className="top">
       <img className="gec" src="/img/tatreez_corner6.png" alt="" aria-hidden="true" />
       <div className="in">
-        <Brand to={guest ? '/' : '/home'} />
+        <Brand to={guest ? '/places' : '/home'} />
         <nav className="topnav" aria-label="القائمة الرئيسية">
-          {NAV.map((item) => (
-            <Link
-              key={item.id}
-              to={guest && item.id === 'home' ? '/' : item.to}
-              aria-current={active === item.id ? 'page' : 'false'}
-            >
+          {NAV.filter((item) => !guest || item.id !== 'home').map((item) => (
+            <Link key={item.id} to={item.to} aria-current={active === item.id ? 'page' : 'false'}>
               {item.label}
             </Link>
           ))}
@@ -70,6 +66,11 @@ export default function AppHeader({ active, guest = false, badges = { inbox: 3, 
           </form>
         )}
         <div className="tacts" style={{ display: 'flex', alignItems: 'center', gap: 2, color: 'rgb(230, 220, 203)' }}>
+          {guest && (
+            <Link to="/login" className="st sm red" style={{ color: '#fff' }}>
+              تسجيل الدخول
+            </Link>
+          )}
           {!guest && (
             <>
               <Link to="/new-post" className="ib hide-md" aria-label="منشور جديد">

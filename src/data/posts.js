@@ -27,13 +27,6 @@ export const FEED = [
   { id: 'f24', user: "tariq.photo", time: "قبل شهر", place: "فندق البستان", images: ["/img/ph/hotel_room2.jpg"], likes: "301", comments: "1", caption: "ليلة بالفندق." },
 ]
 
-export const TRENDING = [
-  { id: 't1', user: "hala.food", time: "قبل يومين", place: "محل الكنافة النابلسية", images: ["/img/ph/sw_halawa.jpg"], likes: "24,610", comments: "418", caption: "حلاوة الجبن… لازم تجربوها.", followable: true },
-  { id: 't2', user: "sara.y", time: "قبل ساعة", place: "فندق البستان", images: ["/img/ph/hotel_pool.jpg"], likes: "18,920", comments: "287", caption: "ويكند عالمسبح… راحة بال.", followable: true },
-  { id: 't3', user: "mahmoud.jabr", time: "قبل شهر", place: "محل الكنافة النابلسية", images: ["/img/ph/sw_kunafa.jpg"], likes: "15,340", comments: "196", caption: "كنافة نابلسية سخنة من الصينية 🔥", verified: true, followable: true },
-  { id: 't4', user: "rania.h", time: "قبل 5 ساعات", place: "عالم المرح", images: ["/img/ph/play_balls.jpg"], likes: "11,075", comments: "154", caption: "الأولاد ما بدهم يروحوا 😄", followable: true },
-]
-
 // Stories row on the home feed. `ring: 'close'` marks a close-friends story.
 export const STORIES = [
   { user: 'sara.y', img: '/img/ph/hotel_pool.jpg', ring: 'close' },
@@ -46,7 +39,7 @@ export const STORIES = [
   { user: 'rania.h', img: '/img/ph/sw_maamoul.jpg' },
 ]
 
-export const postById = (id) => [...FEED, ...TRENDING].find((p) => p.id === id)
+export const postById = (id) => FEED.find((p) => p.id === id)
 
 const clock = (pos, scale) => ({ src: '/assets/images/nablus-clock-tower.jpg', pos, scale })
 

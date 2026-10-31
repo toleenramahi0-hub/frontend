@@ -38,7 +38,7 @@ export default function SettingsDialog() {
   async function signOut() {
     setLoggingOut(true)
     await logout() // clears the local session even if the server call fails (UC-U03 A1/A2)
-    navigate('/', { replace: true })
+    navigate('/login', { replace: true })
   }
 
   return (

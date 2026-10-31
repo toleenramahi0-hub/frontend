@@ -13,10 +13,6 @@ export default function MobileDock({ active, me, inboxBadge = 3 }) {
     return (
       <div className="mdock">
         <nav className="dock" aria-label="التنقل">
-          <Link to="/" className={cls('home')}>
-            <Icon name="home" style={iconStyle} />
-            {label('الرئيسية')}
-          </Link>
           <Link to="/places" className={cls('places')}>
             <Icon name="pin" style={iconStyle} />
             {label('الأماكن')}
@@ -24,6 +20,10 @@ export default function MobileDock({ active, me, inboxBadge = 3 }) {
           <Link to="/map" className={cls('map')}>
             <Icon name="mapAlt" style={iconStyle} />
             {label('الخريطة')}
+          </Link>
+          <Link to="/login">
+            <Icon name="user" style={iconStyle} />
+            {label('دخول')}
           </Link>
         </nav>
       </div>
