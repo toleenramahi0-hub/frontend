@@ -34,3 +34,10 @@ export async function save(preferences) {
   localStorage.setItem(KEY, JSON.stringify({ ...readAll(), [userId]: preferences }))
   return { preferences }
 }
+
+export async function remove() {
+  await delay(300)
+  const { [requireUser()]: _removed, ...rest } = readAll()
+  localStorage.setItem(KEY, JSON.stringify(rest))
+  return null
+}

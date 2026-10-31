@@ -1,9 +1,10 @@
 /**
- * Place-discovery preferences (UC-U11 View, UC-U12 Create, UC-U13 Update).
+ * Place-discovery preferences (UC-U11 View, UC-U12 Create, UC-U13 Update, UC-U14 Remove).
  *
  * Expected Laravel endpoints:
  *   GET  /preferences → { preferences } (404 or { preferences: null } when none saved yet)
  *   PUT  /preferences   body = preferences object → { preferences }
+ *   DELETE /preferences → 204
  *
  * Shape (all optional except where noted; values are stable ids, not Arabic labels):
  *   {
@@ -28,6 +29,7 @@ const useMock = import.meta.env.VITE_USE_MOCK_API === 'true'
 const real = {
   get: () => apiRequest('/preferences'),
   save: (preferences) => apiRequest('/preferences', { method: 'PUT', body: preferences }),
+  remove: () => apiRequest('/preferences', { method: 'DELETE' }),
 }
 
 export const preferencesService = useMock ? mock : real

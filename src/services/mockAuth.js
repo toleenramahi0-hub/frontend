@@ -66,9 +66,16 @@ export async function register({ name, username, email, password }) {
   return { user: publicUser(user), token: issueToken(user.id) }
 }
 
+// Demo account matching the profile in src/data/users.js; created on its first sign-in.
+export const DEMO_ACCOUNT = { name: 'محمود جبر', username: 'mahmoud.jabr', email: 'mahmoud@goexplore.app', password: 'GoExplore2026' }
+
 export async function login({ login, password }) {
-  await delay()
   const id = login.toLowerCase()
+  const isDemo = id === DEMO_ACCOUNT.username || id === DEMO_ACCOUNT.email
+  if (isDemo && !read(USERS_KEY, []).some((u) => u.username === DEMO_ACCOUNT.username)) {
+    await register(DEMO_ACCOUNT)
+  }
+  await delay()
   const user = read(USERS_KEY, []).find((u) => u.email.toLowerCase() === id || u.username.toLowerCase() === id)
   if (!user || user.passwordHash !== (await hash(password))) {
     throw new ApiError('invalid_credentials', { status: 401 })

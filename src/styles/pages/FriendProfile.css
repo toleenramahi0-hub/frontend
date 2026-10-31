@@ -1,0 +1,28 @@
+/* بروفايل صديق — page styles (scoped to .p-FriendProfile) */
+
+.p-FriendProfile{margin:0;background:#f1e8da}
+.p-FriendProfile :where(a[data-nav]){display:inline-block;text-decoration:none;color:inherit;cursor:pointer}
+.p-FriendProfile .gec{position:absolute;left:0;top:0;z-index:60;width:var(--gc);height:auto;pointer-events:none;filter:drop-shadow(0 0 1px rgba(233,200,150,.95)) drop-shadow(0 0 1px rgba(233,200,150,.8)) drop-shadow(0 3px 5px rgba(0,0,0,.25))}
+.p-FriendProfile .gehost{--gc:clamp(110px,15vw,220px)}
+@media (max-width:640px){.p-FriendProfile .gehost{--gc:clamp(72px,22vw,100px)}}
+.p-FriendProfile header.top{overflow:hidden}
+.p-FriendProfile header.top>.in{position:relative;z-index:1}
+.p-FriendProfile header.top>.gec{z-index:0}
+.p-FriendProfile .topnav{align-items:center}
+.p-FriendProfile .topnav>a,.p-FriendProfile .topnav>button{display:inline-flex!important;align-items:center;justify-content:center;border:0;font:inherit;font-weight:600;padding:9px 16px;border-radius:999px;min-height:44px;box-sizing:border-box;cursor:pointer;text-decoration:none;background:rgba(255,255,255,.1)!important;color:#fff6ea!important;box-shadow:inset 0 -2px 0 #e2b66e!important}
+.p-FriendProfile .topnav>a:hover,.p-FriendProfile .topnav>button:hover{background:rgba(255,255,255,.16)!important}
+.p-FriendProfile .vrevs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:6px}
+@media (max-width:700px){.p-FriendProfile .vrevs{grid-template-columns:1fr}}
+.p-FriendProfile .vhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:8px}
+.p-FriendProfile .vrev{display:flex;gap:14px;background:#FFFCF6;border:1px solid #E2D4BF;border-radius:16px;padding:12px;text-decoration:none;color:#231A15;transition:transform .12s,box-shadow .12s}
+.p-FriendProfile .vrev:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(60,40,20,.10)}
+.p-FriendProfile .vrev .vim{flex:none;width:96px;height:96px;border-radius:12px;overflow:hidden;background:#E7DCC9}
+.p-FriendProfile .vrev .vim img{width:100%;height:100%;object-fit:cover;display:block}
+.p-FriendProfile .vrev .vrbody{display:flex;flex-direction:column;gap:4px;min-width:0;flex:1}
+.p-FriendProfile .vrev .vtop{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.p-FriendProfile .vrev .vname{font-weight:800;font-size:16px}
+.p-FriendProfile .vrev .vstars{color:#C8461A;font-size:14px;letter-spacing:1px;white-space:nowrap}
+.p-FriendProfile .vrev .vtxt{font-size:14px;line-height:1.6;color:#3A2E26}
+.p-FriendProfile .vrev .vmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;color:#6A5C51}
+.p-FriendProfile .vbadge{display:inline-flex;align-items:center;gap:4px;background:#E3EEE6;color:#173022;border:1px solid #A8C5B4;border-radius:999px;padding:2px 9px;font-weight:800;font-size:11.5px}
+.p-FriendProfile .vcat{background:#F1E8DA;border-radius:999px;padding:2px 8px;font-weight:700;color:#5A4A3E}

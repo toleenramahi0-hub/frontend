@@ -1,0 +1,74 @@
+/* لوحة الإدارة — page styles (scoped to .p-AdminDashboard) */
+
+.p-AdminDashboard{margin:0}
+.p-AdminDashboard a{color:inherit}.p-AdminDashboard a:hover{color:inherit}
+.p-AdminDashboard header.top{overflow:hidden;position:relative}
+.p-AdminDashboard header.top>.in{position:relative;z-index:1}
+.p-AdminDashboard .gec{position:absolute;left:0;top:0;z-index:0;width:clamp(150px,18vw,260px);height:auto;pointer-events:none;filter:drop-shadow(0 0 1px rgba(233,200,150,.95)) drop-shadow(0 0 1px rgba(233,200,150,.8))}
+.p-AdminDashboard .adm{padding-top:28px;padding-bottom:48px}
+.p-AdminDashboard .ahdr{display:flex;flex-wrap:nowrap!important;align-items:center;gap:14px;min-height:76px;padding:8px clamp(16px,3vw,40px);padding-left:calc(clamp(150px,18vw,260px) * .8 + 12px)}
+.p-AdminDashboard .anav{display:flex;align-items:center;gap:6px;margin:0 auto;min-width:0;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding:4px 2px}
+.p-AdminDashboard .anav::-webkit-scrollbar{display:none}
+.p-AdminDashboard .anav button{display:inline-flex;align-items:center;gap:7px;border:0;font:inherit;font-weight:600;font-size:14px;padding:8px 12px;border-radius:999px;min-height:42px;cursor:pointer;white-space:nowrap;background:rgba(255,255,255,.1);color:#FFF6EA;box-shadow:inset 0 -2px 0 #e2b66e}
+.p-AdminDashboard .anav button:hover{background:rgba(255,255,255,.16)}
+.p-AdminDashboard .anav button.on{background:#7E1514;box-shadow:inset 0 -2px 0 #e2b66e,0 0 0 1px rgba(226,182,110,.5)}
+.p-AdminDashboard .anav button svg{width:17px;height:17px}
+.p-AdminDashboard .nb{background:#E2B66E;color:#2A1A0C;border-radius:999px;font-size:11.5px;min-width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;padding:0 6px;font-weight:800}
+.p-AdminDashboard .anav .on .nb{background:#FFF6EA;color:#7E1514}
+.p-AdminDashboard .aend{display:flex;align-items:center;gap:4px;flex:none;color:#E6DCCB}
+.p-AdminDashboard .aend .ib{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;color:#E6DCCB}
+.p-AdminDashboard .aend .ib:hover{background:rgba(255,255,255,.08)}
+.p-AdminDashboard .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.p-AdminDashboard .kpi{padding:18px 20px;display:flex;flex-direction:column;gap:4px}
+.p-AdminDashboard .kpi b{font-family:'Amiri',serif;font-size:38px;line-height:1.2;color:#231A15}
+.p-AdminDashboard .kpi .up{color:#2E6B3A;font-weight:800;font-size:13px}.p-AdminDashboard .kpi .dn{color:#9A2A1F;font-weight:800;font-size:13px}
+.p-AdminDashboard .spark{display:flex;align-items:flex-end;gap:4px;height:38px;margin-top:6px}
+.p-AdminDashboard .spark i{flex:1;background:#D8A659;border-radius:3px 3px 0 0;opacity:.85}
+.p-AdminDashboard .spark i:last-child{background:#7E1514;opacity:1}
+.p-AdminDashboard .att{display:flex;align-items:center;gap:16px;padding:14px 4px;border-top:1.5px dashed #D5C4AA}
+.p-AdminDashboard .num{width:46px;height:46px;border-radius:12px;background:#F6DCD5;color:#7E1514;font-family:'Amiri',serif;font-size:24px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:inset 0 0 0 3px #F6DCD5,inset 0 0 0 4.2px #D9A08F}
+.p-AdminDashboard .two{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:18px;margin-top:18px}
+.p-AdminDashboard .tbl{width:100%;border-collapse:collapse;font-size:14px}
+.p-AdminDashboard .tbl th{text-align:right;font-size:12px;color:#6A5C51;font-weight:700;padding:10px 12px;border-bottom:1.5px solid #E2D4BF;white-space:nowrap}
+.p-AdminDashboard .tbl td{padding:12px;border-bottom:1px dashed #E2D4BF;vertical-align:middle}
+.p-AdminDashboard .tbl tr:last-child td{border-bottom:0}
+.p-AdminDashboard .tw{overflow-x:auto}
+.p-AdminDashboard .who{display:flex;align-items:center;gap:10px;font-weight:700}
+.p-AdminDashboard .av{width:34px;height:34px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#FFF6EA;font-weight:800;flex:none;overflow:hidden}
+.p-AdminDashboard .av img,.p-AdminDashboard .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.p-AdminDashboard .thumb{width:54px;height:54px;border-radius:10px;overflow:hidden;flex:none;background:#E7DCC9}
+.p-AdminDashboard .acts{display:flex;gap:6px;flex-wrap:wrap}
+.p-AdminDashboard .acts .st{color:#fff}
+.p-AdminDashboard .acts .st.lnn{color:#231A15}
+.p-AdminDashboard .bar{height:10px;border-radius:99px;background:#EFE3CF;overflow:hidden}
+.p-AdminDashboard .bar i{display:block;height:100%;background:#7E1514;border-radius:99px}
+.p-AdminDashboard .feed{display:flex;flex-direction:column}
+.p-AdminDashboard .feed div{display:flex;gap:10px;padding:10px 0;border-top:1px dashed #E2D4BF;font-size:14px}
+.p-AdminDashboard .feed div:first-child{border-top:0}
+.p-AdminDashboard .feed small{color:#6A5C51;white-space:nowrap}
+.p-AdminDashboard .secttl{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.p-AdminDashboard .search{display:flex;gap:8px;align-items:center;background:#FFFCF6;border:1.5px solid #E2D4BF;border-radius:12px;padding:0 12px;min-height:44px}
+.p-AdminDashboard .search input{border:0;background:none;font:inherit;outline:none;min-width:200px}
+.p-AdminDashboard .lnk{background:none;border:0;cursor:pointer;font:inherit;font-weight:700;color:#7E1514}
+.p-AdminDashboard .ni{display:none;font-style:normal}
+.p-AdminDashboard .ls{display:none}
+@media (max-width:640px){
+.p-AdminDashboard .ahdr .anav{position:fixed;left:8px;right:8px;bottom:10px;z-index:80;order:0;width:auto;margin:0;background:#173022;border-radius:20px;padding:6px;gap:2px;justify-content:space-between;box-shadow:0 12px 28px rgba(15,33,24,.4),inset 0 0 0 1px rgba(226,182,110,.35)}
+.p-AdminDashboard .ahdr .anav button{flex:1 0 auto;flex-direction:column;gap:3px;min-height:54px;padding:6px 8px;border-radius:14px;font-size:10.5px;background:none;box-shadow:none;position:relative;color:#E6DCCB}
+.p-AdminDashboard .ahdr .anav button.on{background:#7E1514;color:#FFF6EA;box-shadow:none}
+.p-AdminDashboard .ahdr .anav button.on::after{content:"";position:absolute;inset:3px;border:1.1px dashed #E9C896;border-radius:11px;pointer-events:none}
+.p-AdminDashboard .ahdr .anav .ni{display:block;line-height:0}
+.p-AdminDashboard .ahdr .anav .lf{display:none}.p-AdminDashboard .ahdr .anav .ls{display:block}
+.p-AdminDashboard .ahdr .anav button{flex:1 1 0;min-width:0;padding:6px 2px}
+.p-AdminDashboard .ahdr{flex-wrap:nowrap!important;padding-left:16px!important}
+.p-AdminDashboard .ahdr .brand small{display:none}
+.p-AdminDashboard .ahdr .brand b{font-size:20px}
+.p-AdminDashboard .ahdr .aend{margin-inline-start:auto}
+.p-AdminDashboard .ahdr .anav .ni svg{width:20px;height:20px}
+.p-AdminDashboard .ahdr .anav .nb{position:absolute;top:2px;left:6px;min-width:16px;height:16px;font-size:10px;padding:0 4px}
+.p-AdminDashboard .ahdr{padding-bottom:8px}
+.p-AdminDashboard .adm{padding-bottom:110px!important}
+}
+@media (max-width:1100px){.p-AdminDashboard .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.p-AdminDashboard .two{grid-template-columns:1fr}}
+@media (max-width:1180px){.p-AdminDashboard .ahdr{flex-wrap:wrap!important;padding-bottom:12px}.p-AdminDashboard .aend{margin-inline-start:auto}.p-AdminDashboard .anav{order:3;width:100%;margin:0}}
+@media (max-width:520px){.p-AdminDashboard .kpis{grid-template-columns:1fr 1fr;gap:10px}.p-AdminDashboard .kpi b{font-size:30px}.p-AdminDashboard .hide-sm{display:none}.p-AdminDashboard .search input{min-width:120px}}

@@ -1,0 +1,28 @@
+/*
+ * Small additions on top of the design stylesheets. The design used <button> for
+ * many text links; here they are real links, so drop the default underline.
+ */
+.th-app a:not(.link),
+.th-site a.st {
+  text-decoration: none;
+}
+.th-app a.ulink:hover {
+  text-decoration: underline;
+}
+.th-app a.ib {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.th-app button.backdrop {
+  border: 0;
+  padding: 0;
+  cursor: default;
+}
+/* Story viewer actions render as links too (from the StoryView design scope). */
+.th-app a.stv-act,
+.th-app a.stv-act:hover {
+  color: #fff6ea;
+  font-weight: 700;
+}

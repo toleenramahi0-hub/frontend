@@ -1,0 +1,20 @@
+/* صفحة المكان — page styles (scoped to .p-Place) */
+
+.p-Place{margin:0;background:#f1e8da}
+.p-Place :where(a[data-nav]){display:inline-block;text-decoration:none;color:inherit;cursor:pointer}
+.p-Place .gec{position:absolute;left:0;top:0;z-index:60;width:var(--gc);height:auto;pointer-events:none;filter:drop-shadow(0 0 1px rgba(233,200,150,.95)) drop-shadow(0 0 1px rgba(233,200,150,.8)) drop-shadow(0 3px 5px rgba(0,0,0,.25))}
+.p-Place .gehost{--gc:clamp(110px,15vw,220px)}
+@media (max-width:640px){.p-Place .gehost{--gc:clamp(72px,22vw,100px)}}
+.p-Place header.top{overflow:hidden}
+.p-Place header.top>.in{position:relative;z-index:1}
+.p-Place header.top>.gec{z-index:0}
+.p-Place .topnav{align-items:center}
+.p-Place .topnav>a,.p-Place .topnav>button{display:inline-flex!important;align-items:center;justify-content:center;border:0;font:inherit;font-weight:600;padding:9px 16px;border-radius:999px;min-height:44px;box-sizing:border-box;cursor:pointer;text-decoration:none;background:rgba(255,255,255,.1)!important;color:#fff6ea!important;box-shadow:inset 0 -2px 0 #e2b66e!important}
+.p-Place .topnav>a:hover,.p-Place .topnav>button:hover{background:rgba(255,255,255,.16)!important}
+.p-Place .pinfo>div:first-child{grid-column:1/-1}
+.p-Place .pinfo>aside{position:static!important;align-self:stretch}
+.p-Place .pinfo>aside>.side-card{flex:1;box-sizing:border-box}
+.p-Place .pinfo>aside .mapbox{flex:1;min-height:200px!important;height:auto!important}
+.p-Place .pacts{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px!important}
+.p-Place .pacts .st{justify-content:center;padding-left:8px!important;padding-right:8px!important;font-size:14px}
+.p-Place .pacts .st.grn{color:#fff!important}

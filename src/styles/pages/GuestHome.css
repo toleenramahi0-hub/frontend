@@ -1,0 +1,28 @@
+/* الرئيسية (زائر) — page styles (scoped to .p-GuestHome) */
+
+.p-GuestHome{margin:0;background:#f1e8da}
+.p-GuestHome :where(a[data-nav]){display:inline-block;text-decoration:none;color:inherit;cursor:pointer}
+.p-GuestHome .gec{position:absolute;left:0;top:0;z-index:60;width:var(--gc);height:auto;pointer-events:none;filter:drop-shadow(0 0 1px rgba(233,200,150,.95)) drop-shadow(0 0 1px rgba(233,200,150,.8)) drop-shadow(0 3px 5px rgba(0,0,0,.25))}
+.p-GuestHome .gehost{--gc:clamp(110px,15vw,220px)}
+@media (max-width:640px){.p-GuestHome .gehost{--gc:clamp(72px,22vw,100px)}}
+.p-GuestHome header.top{overflow:hidden}
+.p-GuestHome header.top>.in{position:relative;z-index:1}
+.p-GuestHome header.top>.gec{z-index:0}
+.p-GuestHome .topnav{align-items:center}
+.p-GuestHome .topnav>a,.p-GuestHome .topnav>button{display:inline-flex!important;align-items:center;justify-content:center;border:0;font:inherit;font-weight:600;padding:9px 16px;border-radius:999px;min-height:44px;box-sizing:border-box;cursor:pointer;text-decoration:none;background:rgba(255,255,255,.1)!important;color:#fff6ea!important;box-shadow:inset 0 -2px 0 #e2b66e!important}
+.p-GuestHome .topnav>a:hover,.p-GuestHome .topnav>button:hover{background:rgba(255,255,255,.16)!important}
+.p-GuestHome .ig .feedside{max-width:300px!important;width:300px!important;justify-self:end;margin-inline-start:0!important;margin-inline-end:8px}
+.p-GuestHome .page.ig{max-width:1400px!important;padding-left:16px!important;padding-right:16px!important}
+.p-GuestHome .ig .feedgrid{grid-template-columns:minmax(340px,1fr) minmax(0,640px) minmax(340px,1fr)!important}
+.p-GuestHome .ig .igcol{max-width:640px!important}
+@media (min-width:1280px) and (max-width:1680px){.p-GuestHome .ig .feedgrid{grid-template-columns:minmax(0,1fr) minmax(0,760px) 300px!important;gap:56px!important}.p-GuestHome .ig .igcol{grid-column:2!important;max-width:760px!important;margin:0!important}.p-GuestHome .ig .feedside{grid-column:3!important;margin:0!important;justify-self:end}}
+@media (max-width:1279px) and (min-width:981px){.p-GuestHome .ig .feedgrid{grid-template-columns:minmax(0,600px) 280px!important;justify-content:space-between;gap:32px}.p-GuestHome .ig .igcol{grid-column:1!important;margin:0!important}.p-GuestHome .ig .feedside{grid-column:2!important;width:280px!important;max-width:280px!important;margin-inline-end:0!important}.p-GuestHome .page.ig{padding-left:24px!important;padding-right:24px!important}}
+@media (max-width:980px) and (min-width:641px){.p-GuestHome .ig .feedgrid{grid-template-columns:minmax(0,1fr) 220px!important;justify-content:stretch!important;gap:24px}.p-GuestHome .ig .igcol{grid-column:1!important;margin:0!important;max-width:560px!important}.p-GuestHome .ig .feedside{display:flex!important;grid-column:2!important;width:220px!important;max-width:220px!important;margin:0!important;justify-self:end}.p-GuestHome .ig .urow .uav.s36{width:38px!important;height:38px!important}.p-GuestHome .page.ig{padding-left:20px!important;padding-right:20px!important}}
+@media (max-width:640px){.p-GuestHome .page.ig{padding-left:12px!important;padding-right:12px!important}.p-GuestHome .ig .feedgrid{grid-template-columns:minmax(0,1fr)!important}}
+.p-GuestHome .ig .feedgrid{grid-template-columns:minmax(0,760px)!important;justify-content:center!important}
+.p-GuestHome a.st.wtxt,.p-GuestHome a.st.wtxt:hover{color:#FFFFFF!important}
+.p-GuestHome .ig .igcol{grid-column:1!important;margin:0 auto!important;max-width:760px!important}
+.p-GuestHome header.top .tacts{margin-inline-start:auto}
+.p-GuestHome header.top .topnav{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);gap:18px!important}
+.p-GuestHome .ownercta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:14px;padding:18px 20px;border-radius:18px;background:#173022;box-shadow:inset 0 0 0 5px #173022,inset 0 0 0 6.4px rgba(226,182,110,.45)}
+.p-GuestHome .oic{width:52px;height:52px;border-radius:50%;background:#FBF6EE;color:#7E1514;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:inset 0 0 0 4px #FBF6EE,inset 0 0 0 5.4px #C9955A}

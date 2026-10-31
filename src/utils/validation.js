@@ -34,8 +34,11 @@ export function validateRegister({ name, username, email, password, passwordConf
   else if (password.length < 8) errors.password = messages.passwordLength
   else if (!/[A-Za-z]/.test(password) || !/\d/.test(password)) errors.password = messages.passwordStrength
 
-  if (!passwordConfirmation) errors.passwordConfirmation = messages.required
-  else if (password !== passwordConfirmation) errors.passwordConfirmation = messages.passwordMatch
+  // Only forms that ask for a confirmation field check it.
+  if (passwordConfirmation !== undefined) {
+    if (!passwordConfirmation) errors.passwordConfirmation = messages.required
+    else if (password !== passwordConfirmation) errors.passwordConfirmation = messages.passwordMatch
+  }
 
   return errors
 }

@@ -1,0 +1,26 @@
+/* دخول الإدارة — page styles (scoped to .p-AdminLogin) */
+
+.p-AdminLogin{margin:0}
+.p-AdminLogin a{color:inherit}.p-AdminLogin a:hover{color:inherit}
+.p-AdminLogin .pg{--bar:clamp(60px,min(11vh,7.5vw),110px);--corner:clamp(140px,min(20vw,30vh),300px)}
+@media (max-width:640px){.p-AdminLogin .pg{--bar:54px;--corner:clamp(100px,30vw,140px)}}
+.p-AdminLogin .side{position:absolute;z-index:3;left:0;top:calc(var(--corner) * 2.4117 - 1px);bottom:0;width:calc(var(--corner) * 0.355);background:url(/img/tatreez_side2.png) top left / 100% auto repeat-y;pointer-events:none;filter:drop-shadow(0 3px 6px rgba(0,0,0,.3))}
+.p-AdminLogin .amain{padding-left:calc(var(--corner) * .35 + 16px)!important}
+.p-AdminLogin .remember{display:inline-flex;align-items:center;gap:10px;cursor:pointer;font-weight:700;align-self:flex-start;min-height:44px;position:relative}
+.p-AdminLogin .remember input{position:absolute;opacity:0;width:1px;height:1px}
+.p-AdminLogin .remember .box{width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;position:relative;background:#FBF6EE;color:transparent;box-shadow:0 1px 2px rgba(40,20,10,.25),0 0 0 1px #C9B89C}
+.p-AdminLogin .remember .box::after{content:"";position:absolute;inset:3px;border-radius:5px;border:1.1px dashed #A98663}
+.p-AdminLogin .remember input:checked + .box{background:#7E1514;color:#FFF6EA;box-shadow:0 1px 3px rgba(60,20,10,.35)}
+.p-AdminLogin .remember input:checked + .box::after{border-color:#E9C896}
+.p-AdminLogin .remember input:focus-visible + .box{outline:2px solid #C9955A;outline-offset:2px}
+.p-AdminLogin .chk{display:flex;gap:10px;align-items:center;color:#E6DCCB;font-size:17px}
+.p-AdminLogin .chk i{width:24px;height:24px;border-radius:50%;border:1.4px dashed #E2B66E;display:flex;align-items:center;justify-content:center;color:#E2B66E;font-style:normal;font-size:13px;flex:none}
+.p-AdminLogin header.top{overflow:hidden;position:relative}
+.p-AdminLogin header.top>.in{position:relative;z-index:1}
+.p-AdminLogin header.top>.gec{z-index:0}
+.p-AdminLogin .gec{position:absolute;left:0;top:0;width:calc(var(--corner) * 1.25);height:auto;pointer-events:none;filter:drop-shadow(0 0 1px rgba(233,200,150,.95)) drop-shadow(0 0 1px rgba(233,200,150,.8))}
+.p-AdminLogin .lock{width:56px;height:56px;border-radius:50%;background:#173022;color:#E9C896;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:inset 0 0 0 4px #173022,inset 0 0 0 5.4px rgba(226,182,110,.6)}
+.p-AdminLogin .lock svg{width:26px;height:26px}
+.p-AdminLogin .otp{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.p-AdminLogin .otp input{min-width:0;height:58px;border-radius:12px;border:1.5px solid #D5C4AA;background:#FFFCF6;text-align:center;font:inherit;font-size:24px;font-weight:800;color:#231A15}
+.p-AdminLogin .otp input:focus{outline:2px solid #C9955A;outline-offset:1px}

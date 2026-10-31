@@ -1,0 +1,36 @@
+/* الرئيسية (مسجّل) — page styles (scoped to .p-Home) */
+
+.p-Home{margin:0;background:#f1e8da}
+.p-Home :where(a[data-nav]){display:inline-block;text-decoration:none;color:inherit;cursor:pointer}
+.p-Home .gec{position:absolute;left:0;top:0;z-index:60;width:var(--gc);height:auto;pointer-events:none;filter:drop-shadow(0 0 1px rgba(233,200,150,.95)) drop-shadow(0 0 1px rgba(233,200,150,.8)) drop-shadow(0 3px 5px rgba(0,0,0,.25))}
+.p-Home .gehost{--gc:clamp(110px,15vw,220px)}
+@media (max-width:640px){.p-Home .gehost{--gc:clamp(72px,22vw,100px)}}
+.p-Home header.top{overflow:hidden}
+.p-Home header.top>.in{position:relative;z-index:1}
+.p-Home header.top>.gec{z-index:0}
+.p-Home .topnav{align-items:center}
+.p-Home .topnav>a,.p-Home .topnav>button{display:inline-flex!important;align-items:center;justify-content:center;border:0;font:inherit;font-weight:600;padding:9px 16px;border-radius:999px;min-height:44px;box-sizing:border-box;cursor:pointer;text-decoration:none;background:rgba(255,255,255,.1)!important;color:#fff6ea!important;box-shadow:inset 0 -2px 0 #e2b66e!important}
+.p-Home .topnav>a:hover,.p-Home .topnav>button:hover{background:rgba(255,255,255,.16)!important}
+.p-Home .ig .feedside{max-width:300px!important;width:300px!important;justify-self:end;margin-inline-start:0!important;margin-inline-end:8px}
+.p-Home .page.ig{max-width:1400px!important;padding-left:16px!important;padding-right:16px!important}
+.p-Home .ig .feedgrid{grid-template-columns:minmax(340px,1fr) minmax(0,640px) minmax(340px,1fr)!important}
+.p-Home .ig .igcol{max-width:640px!important}
+@media (min-width:1280px) and (max-width:1680px){.p-Home .ig .feedgrid{grid-template-columns:minmax(0,1fr) minmax(0,760px) 300px!important;gap:56px!important}.p-Home .ig .igcol{grid-column:2!important;max-width:760px!important;margin:0!important}.p-Home .ig .feedside{grid-column:3!important;margin:0!important;justify-self:end}}
+@media (max-width:1279px) and (min-width:981px){.p-Home .ig .feedgrid{grid-template-columns:minmax(0,600px) 280px!important;justify-content:space-between;gap:32px}.p-Home .ig .igcol{grid-column:1!important;margin:0!important}.p-Home .ig .feedside{grid-column:2!important;width:280px!important;max-width:280px!important;margin-inline-end:0!important}.p-Home .page.ig{padding-left:24px!important;padding-right:24px!important}}
+@media (max-width:980px) and (min-width:641px){.p-Home .ig .feedgrid{grid-template-columns:minmax(0,1fr) 220px!important;justify-content:stretch!important;gap:24px}.p-Home .ig .igcol{grid-column:1!important;margin:0!important;max-width:560px!important}.p-Home .ig .feedside{display:flex!important;grid-column:2!important;width:220px!important;max-width:220px!important;margin:0!important;justify-self:end}.p-Home .ig .urow .uav.s36{width:38px!important;height:38px!important}.p-Home .page.ig{padding-left:20px!important;padding-right:20px!important}}
+@media (max-width:640px){.p-Home .page.ig{padding-left:12px!important;padding-right:12px!important}.p-Home .ig .feedgrid{grid-template-columns:minmax(0,1fr)!important}}
+.p-Home .msugg{display:none}
+@media (max-width:640px){
+.p-Home .msugg{display:block;padding:14px 0 16px;border-top:1px solid #E2D4BF;border-bottom:1px solid #E2D4BF;margin:6px 0}
+.p-Home .msugg .between{padding:0 4px 10px}
+.p-Home .msrow{display:flex;gap:10px;overflow-x:auto;padding:2px 4px 4px;scrollbar-width:none}
+.p-Home .msrow::-webkit-scrollbar{display:none}
+.p-Home .mscard{position:relative;flex:0 0 150px;background:#FFFCF6;border:1px solid #E2D4BF;border-radius:16px;padding:16px 10px 12px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.p-Home .msu{display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#231A15;min-width:0;width:100%}
+.p-Home .msu strong{font-size:14px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.p-Home .msu span:not(.msav){font-size:12px;color:#6A5C51}
+.p-Home .msav{width:72px;height:72px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#FFF6EA;font-weight:800;font-size:26px;box-shadow:0 0 0 2px #FFFCF6,0 0 0 3.5px #C9955A;margin-bottom:4px}
+.p-Home .msav img{width:100%;height:100%;object-fit:cover}
+.p-Home .msbtn{width:100%;justify-content:center;color:#fff!important}
+.p-Home .msx{position:absolute;top:6px;left:8px;border:0;background:none;color:#8A7B6E;font-size:13px;cursor:pointer}
+}

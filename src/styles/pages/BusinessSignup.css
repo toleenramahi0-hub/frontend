@@ -1,0 +1,47 @@
+/* تسجيل نشاط جديد — page styles (scoped to .p-BusinessSignup) */
+
+.p-BusinessSignup{margin:0}
+.p-BusinessSignup a{color:inherit}.p-BusinessSignup a:hover{color:inherit}
+.p-BusinessSignup .pg{--bar:clamp(60px,min(11vh,7.5vw),110px);--corner:clamp(140px,min(20vw,30vh),300px)}
+@media (max-width:640px){.p-BusinessSignup .pg{--bar:54px;--corner:clamp(100px,30vw,140px)}}
+.p-BusinessSignup .side{position:absolute;z-index:3;left:0;top:calc(var(--corner) * 2.4117 - 1px);bottom:0;width:calc(var(--corner) * 0.355);background:url(/img/tatreez_side2.png) top left / 100% auto repeat-y;pointer-events:none;filter:drop-shadow(0 3px 6px rgba(0,0,0,.3))}
+.p-BusinessSignup .amain{padding-left:calc(var(--corner) * .35 + 16px)!important}
+.p-BusinessSignup .remember{display:inline-flex;align-items:center;gap:10px;cursor:pointer;font-weight:700;align-self:flex-start;min-height:44px;position:relative}
+.p-BusinessSignup .remember input{position:absolute;opacity:0;width:1px;height:1px}
+.p-BusinessSignup .remember .box{width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;position:relative;background:#FBF6EE;color:transparent;box-shadow:0 1px 2px rgba(40,20,10,.25),0 0 0 1px #C9B89C}
+.p-BusinessSignup .remember .box::after{content:"";position:absolute;inset:3px;border-radius:5px;border:1.1px dashed #A98663}
+.p-BusinessSignup .remember input:checked + .box{background:#7E1514;color:#FFF6EA;box-shadow:0 1px 3px rgba(60,20,10,.35)}
+.p-BusinessSignup .remember input:checked + .box::after{border-color:#E9C896}
+.p-BusinessSignup .remember input:focus-visible + .box{outline:2px solid #C9955A;outline-offset:2px}
+.p-BusinessSignup .chk{display:flex;gap:10px;align-items:center;color:#E6DCCB;font-size:17px}
+.p-BusinessSignup .chk i{width:24px;height:24px;border-radius:50%;border:1.4px dashed #E2B66E;display:flex;align-items:center;justify-content:center;color:#E2B66E;font-style:normal;font-size:13px;flex:none}
+.p-BusinessSignup header.top{overflow:hidden;position:relative}
+.p-BusinessSignup header.top>.in{position:relative;z-index:1}
+.p-BusinessSignup header.top>.gec{z-index:0}
+.p-BusinessSignup .gec{position:absolute;left:0;top:0;width:calc(var(--corner) * 1.25);height:auto;pointer-events:none;filter:drop-shadow(0 0 1px rgba(233,200,150,.95)) drop-shadow(0 0 1px rgba(233,200,150,.8))}
+.p-BusinessSignup .lock{width:56px;height:56px;border-radius:50%;background:#173022;color:#E9C896;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:inset 0 0 0 4px #173022,inset 0 0 0 5.4px rgba(226,182,110,.6)}
+.p-BusinessSignup .lock svg{width:26px;height:26px}
+.p-BusinessSignup .otp{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.p-BusinessSignup .otp input{min-width:0;height:58px;border-radius:12px;border:1.5px solid #D5C4AA;background:#FFFCF6;text-align:center;font:inherit;font-size:24px;font-weight:800;color:#231A15}
+.p-BusinessSignup .otp input:focus{outline:2px solid #C9955A;outline-offset:1px}
+.p-BusinessSignup .g2f{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:560px){.p-BusinessSignup .g2f{grid-template-columns:1fr}}
+.p-BusinessSignup .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.p-BusinessSignup .steps div{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;font-weight:700;color:#6A5C51;position:relative}
+.p-BusinessSignup .steps i{font-style:normal;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#EFE3CF;color:#6A5C51;box-shadow:inset 0 0 0 1.5px #D5C4AA;font-weight:800}
+.p-BusinessSignup .steps .cur i{background:#7E1514;color:#FFF6EA;box-shadow:inset 0 0 0 3px #7E1514,inset 0 0 0 4.2px #E9C896}
+.p-BusinessSignup .steps .cur{color:#231A15}
+.p-BusinessSignup .steps .done i{background:#173022;color:#E9C896;box-shadow:none}
+.p-BusinessSignup .cgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.p-BusinessSignup .cb{display:flex;align-items:center;gap:8px;border:0;border-radius:12px;padding:8px 10px;font:inherit;font-weight:700;font-size:14px;cursor:pointer;background:rgba(251,246,238,.75);color:#231A15;box-shadow:0 0 0 1px #D5C4AA}
+.p-BusinessSignup .cb .ci{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#FBF6EE;color:#7E1514;box-shadow:inset 0 0 0 1.3px #C9955A;flex:none}
+.p-BusinessSignup .cb.on{background:#F6E4DC;box-shadow:0 0 0 2px #7E1514}
+.p-BusinessSignup .cb.on .ci{background:#7E1514;color:#FFF6EA;box-shadow:inset 0 0 0 2px #7E1514,inset 0 0 0 3px #E9C896}
+@media (max-width:560px){.p-BusinessSignup .cgrid{grid-template-columns:1fr 1fr}}
+.p-BusinessSignup .up{display:flex;align-items:center;gap:12px;width:100%;border:1.5px dashed #C9B89C;border-radius:14px;background:rgba(251,246,238,.75);padding:12px 14px;font:inherit;color:#231A15;cursor:pointer}
+.p-BusinessSignup .up .ui{width:40px;height:40px;border-radius:12px;background:#EFE3CF;color:#7E1514;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+.p-BusinessSignup .up.done{border-style:solid;border-color:#A8C5B4;background:#EEF3EA}
+.p-BusinessSignup .up.done .ui{background:#173022;color:#E9C896;font-size:18px}
+.p-BusinessSignup .okc{width:72px;height:72px;border-radius:50%;background:#173022;color:#E9C896;font-size:34px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 5px #173022,inset 0 0 0 6.5px rgba(226,182,110,.7)}
+.p-BusinessSignup .todo{display:flex;flex-direction:column;gap:8px;width:100%;text-align:right;background:rgba(251,246,238,.75);border-radius:14px;padding:12px 16px;font-size:14px}
+.p-BusinessSignup .todo div{display:flex;align-items:center;gap:10px}

@@ -1,0 +1,22 @@
+/* فئة: إلكترونيات — page styles (scoped to .p-CategoryElectronics) */
+
+.p-CategoryElectronics{margin:0;background:#f1e8da}
+.p-CategoryElectronics :where(a[data-nav]){display:inline-block;text-decoration:none;color:inherit;cursor:pointer}
+.p-CategoryElectronics .gec{position:absolute;left:0;top:0;z-index:60;width:var(--gc);height:auto;pointer-events:none;filter:drop-shadow(0 0 1px rgba(233,200,150,.95)) drop-shadow(0 0 1px rgba(233,200,150,.8)) drop-shadow(0 3px 5px rgba(0,0,0,.25))}
+.p-CategoryElectronics .gehost{--gc:clamp(110px,15vw,220px)}
+@media (max-width:640px){.p-CategoryElectronics .gehost{--gc:clamp(72px,22vw,100px)}}
+.p-CategoryElectronics header.top{overflow:hidden}
+.p-CategoryElectronics header.top>.in{position:relative;z-index:1}
+.p-CategoryElectronics header.top>.gec{z-index:0}
+.p-CategoryElectronics .topnav{align-items:center}
+.p-CategoryElectronics .topnav>a,.p-CategoryElectronics .topnav>button{display:inline-flex!important;align-items:center;justify-content:center;border:0;font:inherit;font-weight:600;padding:9px 16px;border-radius:999px;min-height:44px;box-sizing:border-box;cursor:pointer;text-decoration:none;background:rgba(255,255,255,.1)!important;color:#fff6ea!important;box-shadow:inset 0 -2px 0 #e2b66e!important}
+.p-CategoryElectronics .topnav>a:hover,.p-CategoryElectronics .topnav>button:hover{background:rgba(255,255,255,.16)!important}
+.p-CategoryElectronics .hero .hslide{transform:none!important;animation:hslide 840s linear infinite}
+.p-CategoryElectronics .hero .hs0{animation-delay:0s}.p-CategoryElectronics .hero .hs1{animation-delay:-720s}.p-CategoryElectronics .hero .hs2{animation-delay:-600s}.p-CategoryElectronics .hero .hs3{animation-delay:-480s}.p-CategoryElectronics .hero .hs4{animation-delay:-360s}.p-CategoryElectronics .hero .hs5{animation-delay:-240s}.p-CategoryElectronics .hero .hs6{animation-delay:-120s}
+@keyframes hslide{0%{opacity:1}13.571%{opacity:1}14.286%{opacity:0}99.286%{opacity:0}100%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.p-CategoryElectronics .hero .hslide{animation:none;opacity:0}.p-CategoryElectronics .hero .hs0{opacity:1}}
+.p-CategoryElectronics a.fchip{text-decoration:none;display:inline-flex!important;align-items:center}
+.p-CategoryElectronics .caticon{flex:none;width:170px;height:170px;border-radius:50%;background:#FBF6EE;color:#7E1514;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.35),0 0 0 10px rgba(226,182,110,.12);margin-inline-end:20px}
+.p-CategoryElectronics .caticon .cring{width:146px;height:146px;border-radius:50%;border:2px solid #C9955A;display:flex;align-items:center;justify-content:center}
+.p-CategoryElectronics .caticon svg{width:68px;height:68px}
+@media (max-width:640px){.p-CategoryElectronics .cathero{flex-direction:row!important;align-items:center!important}.p-CategoryElectronics .caticon{width:104px;height:104px;margin:0}.p-CategoryElectronics .caticon .cring{width:88px;height:88px}.p-CategoryElectronics .caticon svg{width:42px;height:42px}}

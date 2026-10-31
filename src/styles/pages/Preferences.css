@@ -1,0 +1,43 @@
+/* تفضيلاتي — page styles (scoped to .p-Preferences) */
+
+.p-Preferences{margin:0}
+.p-Preferences a{color:inherit}.p-Preferences a:hover{color:inherit}
+.p-Preferences .catcard{position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;padding:22px 10px 18px;border-radius:18px;font:inherit;color:#231A15;cursor:pointer;border:0;transition:transform .12s}
+.p-Preferences .catcard:hover{transform:translateY(-2px)}
+.p-Preferences .catcard::after{content:"";position:absolute;inset:5px;border-radius:14px;border:1.3px dashed var(--thread);pointer-events:none}
+.p-Preferences .catcard.off{background:rgba(251,246,238,.55);--thread:#D5C4AA;box-shadow:0 1px 2px rgba(60,40,20,.12),0 0 0 1px #E2D4BF}
+.p-Preferences .catcard.on{background:#F6E4DC;--thread:#9A2A1F;box-shadow:0 2px 4px rgba(60,20,10,.18),0 0 0 2px #7E1514}
+.p-Preferences .ibox{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;position:relative}
+.p-Preferences .ibox::after{content:"";position:absolute;inset:3px;border-radius:13px;border:1.1px dashed var(--thread)}
+.p-Preferences .catcard.off .ibox{background:#EFE3CF;color:#7E1514;--thread:#A98663}
+.p-Preferences .catcard.on .ibox{background:#7E1514;color:#FFF6EA;--thread:#E9C896}
+.p-Preferences .tick{position:absolute;top:12px;left:12px;width:24px;height:24px;border-radius:50%;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;z-index:1}
+.p-Preferences .catcard.off .tick{color:transparent;border:1.5px dashed #C9B89C}
+.p-Preferences .catcard.on .tick{background:#173022;color:#F7F0E2;box-shadow:0 0 0 2px #F6E4DC}
+.p-Preferences .price{display:flex;flex-direction:column;align-items:center;gap:4px;padding:20px 12px}
+.p-Preferences .range{-webkit-appearance:none;appearance:none;width:100%;height:10px;border-radius:99px;outline:none;cursor:pointer}
+.p-Preferences .range::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#7E1514;border:3px solid #FBF6EE;box-shadow:0 0 0 1.5px #7E1514,0 2px 4px rgba(0,0,0,.3)}
+.p-Preferences .range::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#7E1514;border:3px solid #FBF6EE;box-shadow:0 0 0 1.5px #7E1514}
+.p-Preferences legend{font-weight:700;margin-bottom:10px;padding:0;font-size:17px}
+.p-Preferences fieldset{border:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.p-Preferences .pg{--bar:clamp(60px,min(11vh,7.5vw),110px);--corner:clamp(140px,min(20vw,30vh),300px)}
+.p-Preferences .h2.step{font-size:34px}
+@media (max-width:640px){
+  .p-Preferences .pg{--bar:54px;--corner:clamp(100px,30vw,140px)}
+  .p-Preferences .h2.step{font-size:25px}
+  .p-Preferences .catgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+  .p-Preferences .catcard{padding:16px 8px 14px}
+  .p-Preferences .ibox{width:46px;height:46px}
+  .p-Preferences .pcard{padding:18px 14px!important;border-radius:18px!important}
+  .p-Preferences .hdr .stepinfo{font-size:12px}
+}
+.p-Preferences .side{position:absolute;z-index:3;left:0;top:calc(var(--corner) * 2.4117 - 1px);bottom:0;width:calc(var(--corner) * 0.355);background:url(/img/tatreez_side2.png) top left / 100% auto repeat-y;pointer-events:none;filter:drop-shadow(0 3px 6px rgba(0,0,0,.3))}
+.p-Preferences .pmain{padding-left:calc(var(--corner) * .35 + 16px)!important}
+.p-Preferences .pcard .muted{color:#231A15!important;font-weight:500}
+.p-Preferences .stepnum{position:relative;z-index:5;color:#F7F0E2;font-weight:700;text-shadow:0 0 3px #0F2118,0 0 6px #0F2118,0 1px 2px #000}
+.p-Preferences .prog{height:8px;border-radius:99px;background:rgba(255,255,255,.16)}
+.p-Preferences .prog.on{background:#D8A659;background-image:repeating-linear-gradient(90deg,rgba(126,21,20,.55) 0 3px,transparent 3px 8px);background-size:8px 2px;background-repeat:repeat-x;background-position:0 3px}
+.p-Preferences header.top{overflow:hidden;position:relative}
+.p-Preferences header.top>.in{position:relative;z-index:1}
+.p-Preferences header.top>.gec{z-index:0}
+.p-Preferences .gec{position:absolute;left:0;top:0;width:calc(var(--corner) * 1.25);height:auto;pointer-events:none;filter:drop-shadow(0 0 1px rgba(233,200,150,.95)) drop-shadow(0 0 1px rgba(233,200,150,.8))}

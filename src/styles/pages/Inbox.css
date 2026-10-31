@@ -1,0 +1,17 @@
+/* الرسائل — page styles (scoped to .p-Inbox) */
+
+.p-Inbox{margin:0;background:#f1e8da}
+.p-Inbox :where(a[data-nav]){display:inline-block;text-decoration:none;color:inherit;cursor:pointer}
+.p-Inbox .gec{position:absolute;left:0;top:0;z-index:60;width:var(--gc);height:auto;pointer-events:none;filter:drop-shadow(0 0 1px rgba(233,200,150,.95)) drop-shadow(0 0 1px rgba(233,200,150,.8)) drop-shadow(0 3px 5px rgba(0,0,0,.25))}
+.p-Inbox .gehost{--gc:clamp(110px,15vw,220px)}
+@media (max-width:640px){.p-Inbox .gehost{--gc:clamp(72px,22vw,100px)}}
+.p-Inbox header.top{overflow:hidden}
+.p-Inbox header.top>.in{position:relative;z-index:1}
+.p-Inbox header.top>.gec{z-index:0}
+.p-Inbox .topnav{align-items:center}
+.p-Inbox .topnav>a,.p-Inbox .topnav>button{display:inline-flex!important;align-items:center;justify-content:center;border:0;font:inherit;font-weight:600;padding:9px 16px;border-radius:999px;min-height:44px;box-sizing:border-box;cursor:pointer;text-decoration:none;background:rgba(255,255,255,.1)!important;color:#fff6ea!important;box-shadow:inset 0 -2px 0 #e2b66e!important}
+.p-Inbox .topnav>a:hover,.p-Inbox .topnav>button:hover{background:rgba(255,255,255,.16)!important}
+/* inbox-bg */
+.p-Inbox .ge.pg{background:linear-gradient(rgba(241,232,218,.5),rgba(241,232,218,.5)),url(/img/ph/hero_arches.jpg) center 45%/cover no-repeat fixed!important}
+.p-Inbox .inboxwrap{background:rgba(251,246,238,.55)!important;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.p-Inbox .inboxwrap .msgs{background:rgba(255,252,246,.35)!important}

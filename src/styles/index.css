@@ -1,0 +1,51 @@
+/* Design stylesheets: shared themes, then one file per screen (each scoped to .p-<Screen>). */
+@import './app-theme.css';
+@import './site-theme.css';
+@import './pages/AdminDashboard.css';
+@import './pages/AdminLogin.css';
+@import './pages/BusinessDashboard.css';
+@import './pages/BusinessLogin.css';
+@import './pages/BusinessSignup.css';
+@import './pages/CategoryCafes.css';
+@import './pages/CategoryElectronics.css';
+@import './pages/CategoryFun.css';
+@import './pages/CategoryGifts.css';
+@import './pages/CategoryHotels.css';
+@import './pages/CategoryPets.css';
+@import './pages/CategoryRestaurants.css';
+@import './pages/CategorySweets.css';
+@import './pages/CategoryToys.css';
+@import './pages/EditProfile.css';
+@import './pages/FriendProfile.css';
+@import './pages/GuestHome.css';
+@import './pages/Home.css';
+@import './pages/Inbox.css';
+@import './pages/Login.css';
+@import './pages/MapPage.css';
+@import './pages/MyProfile.css';
+@import './pages/NewPost.css';
+@import './pages/Notifications.css';
+@import './pages/Place.css';
+@import './pages/Places.css';
+@import './pages/PostView.css';
+@import './pages/Preferences.css';
+@import './pages/PrivateProfile.css';
+@import './pages/Search.css';
+@import './pages/Settings.css';
+@import './pages/StoryView.css';
+@import './app.css';
+
+html,
+body {
+  margin: 0;
+}
+body {
+  background: #f1e8da;
+}
+#root {
+  min-height: 100vh;
+}
+.th-app,
+.th-site {
+  min-height: 100vh;
+}
