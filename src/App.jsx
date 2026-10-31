@@ -5,6 +5,7 @@ import { AuthProvider } from './context/AuthContext'
 import { useAuth } from './context/useAuth'
 import LoginPage from './pages/auth/LoginPage'
 import HomePage from './pages/home/HomePage'
+import IntroPage from './pages/intro/IntroPage'
 import NewPostDialog from './pages/home/NewPostDialog'
 import PostDialog from './pages/home/PostDialog'
 import SettingsDialog from './pages/home/SettingsDialog'
@@ -33,10 +34,10 @@ function ScrollToTop() {
   return null
 }
 
-// Visitors start at sign-in; signed-in users at their feed.
+// Visitors start at the intro (pick user / business / admin); signed-in users at their feed.
 function StartPage() {
   const { isAuthenticated } = useAuth()
-  return <Navigate to={isAuthenticated ? '/home' : '/login'} replace />
+  return isAuthenticated ? <Navigate to="/home" replace /> : <IntroPage />
 }
 
 function AppRoutes() {

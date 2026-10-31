@@ -28,7 +28,7 @@ password and any 6-digit code until the staff auth API exists (`src/services/sta
 
 | Route | Screen | Use cases |
 | --- | --- | --- |
-| `/` | Redirects: visitors → `/login`, signed-in users → `/home` | — |
+| `/` | Animated intro for visitors with “enter as” user → `/login`, business → `/business/login`, admin → `/admin/login`; signed-in users go to `/home` | — |
 | `/login`, `/register` | Sign in / create account | UC-U01, UC-U02 |
 | `/preferences` | 4-step preferences wizard | UC-U11 – UC-U14 |
 | `/home` | Feed: stories, highlighted places, posts, suggestions | UC-SR-02, UC-SR-04 |
@@ -62,7 +62,7 @@ src/
   services/                api.js, auth / preferences services + mocks, interactions.js
                            (likes, saves, ratings… in localStorage), recommendations.js
                            (client-side NL preference extraction), staffSession.js
-  pages/                   one folder per area (home, places, search, profile, inbox,
+  pages/                   one folder per area (intro, home, places, search, profile, inbox,
                            notifications, preferences, auth, staff)
 ```
 

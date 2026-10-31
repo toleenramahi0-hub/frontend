@@ -100,7 +100,7 @@ export default function LoginPage({ mode = 'login' }) {
           className="photo"
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectPosition: 'center bottom' }}
         />
-        <SiteHeader to="/places" label="تصفّح الأماكن" />
+        <SiteHeader />
         <section
           className="amain"
           style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 'clamp(24px, 5vh, 56px) 16px', position: 'relative' }}
